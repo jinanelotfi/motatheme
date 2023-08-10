@@ -1,0 +1,16 @@
+{
+  "name": "motatheme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node-sass scss/main.scss dist/css/style.css",
+    "watch": "node-sass scss/main.scss dist/css/style.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

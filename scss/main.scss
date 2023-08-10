@@ -1,0 +1,26 @@
+@import "colors";
+@import "fonts";
+@import "navigation";
+@import "footer";
+
+
+// GLOBAL
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SpaceMono', sans-serif;
+    color: var(--black);
+    font-size: 1rem;
+    background-color: var(--white);
+    margin: 0;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}

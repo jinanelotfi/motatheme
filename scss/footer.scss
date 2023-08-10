@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .footer-class {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7rem;        
+        list-style: none;
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+    }
+}
