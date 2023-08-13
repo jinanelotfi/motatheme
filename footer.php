@@ -1,5 +1,6 @@
+    <?php get_template_part('templates/contact'); ?>
     <footer>
-    <?php 
+        <?php 
             wp_nav_menu([
                 'theme_location' => 'footer',
                 'container' => false,
