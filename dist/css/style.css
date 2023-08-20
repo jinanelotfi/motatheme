@@ -185,7 +185,7 @@ footer {
   margin: 2rem auto; }
   .gallery-container .image-gallery {
     width: 100%;
-    height: 20rem;
+    height: 27rem;
     object-fit: cover;
     object-position: center; }
   .gallery-container a {
@@ -283,6 +283,22 @@ footer {
 
 .next-link:hover .nav-thumbnail {
   display: inline-block; }
+
+.similar-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto; }
+  .similar-container .photo-block {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 100%; }
+    .similar-container .photo-block a {
+      display: flex;
+      width: 100%; }
 
 * {
   box-sizing: border-box; }

@@ -1,0 +1,21 @@
+.similar-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem auto;
+
+    .photo-block {
+        display: flex;
+        flex-basis: 50%;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        a {
+            display: flex;
+            width: 100%;
+            // flex-basis: 40%;
+        }
+    }
+}

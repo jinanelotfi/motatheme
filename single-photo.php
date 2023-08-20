@@ -14,7 +14,6 @@
             <div class="photo-block">
                 <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" class="lightbox-link">
                     <?php the_post_thumbnail('full', ['class' => 'full-image']); ?>
-                    <!-- <div class="fullscreen-icon">Plein écran</div> -->
                 </a>
             </div>
         </div>
@@ -33,18 +32,18 @@
                         </span>
                         <img src="<?php echo get_template_directory_uri() . '/assets/images/arrow-left.png'; ?>" alt="flèche gauche" id="arrow-left">
                     </a>
-                    <!-- <div class="prev-thumbnail"></div> -->
                     <a href="<?php echo get_permalink(get_adjacent_post(false, '', true)); ?>" class="nav-link next-link">
                         <span class="nav-thumbnail next-img">
                             <?php echo get_the_post_thumbnail(get_adjacent_post(false, '', true), 'thumbnail'); ?>
                         </span>
                         <img src="<?php echo get_template_directory_uri() . '/assets/images/arrow-right.png'; ?>" alt="flèche droite" id="arrow-right">
                     </a>
-                    <!-- <div class="next-thumbnail"></div> -->
                 </div>
             </div>
         </div>
+        <?php get_template_part('templates/photo_block'); ?>
     <?php endwhile; ?>
+    
 
 </main>
 
