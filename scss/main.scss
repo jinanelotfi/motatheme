@@ -4,6 +4,8 @@
 @import "navigation";
 @import "footer";
 @import "contact";
+@import "gallery";
+@import "single";
 
 
 
@@ -18,7 +20,7 @@ body {
     font-size: 1rem;
     background-color: var(--white);
     margin: 0;
-    max-width: 1440px;
+    // max-width: 1440px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -26,4 +28,8 @@ body {
 
 main {
     flex: 1;
+}
+
+h1 {
+    font-size: 2rem;
 }

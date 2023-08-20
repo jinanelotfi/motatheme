@@ -27,6 +27,28 @@ function motatheme_menu__link_class ($attrs) {
     return $attrs;
 }
 
+function motatheme_init() {
+    register_taxonomy('categorie', 'photo',[
+        'labels' => [
+            'name' => 'Catégories',
+            'singular_name' => 'Catégorie',
+            'plural_name' => 'Catégories',
+            'search_icons' => 'Rechercher une catégorie',
+            'all_items' => 'Toutes les catégories',
+            'edit_items' => 'Editer la catégorie',
+            'update_item' => 'Mettre à jour la catégorie',
+            'add_new_item' => 'Ajouter une nouvelle catégorie',
+            'new_item_name' => 'Nom de la nouvelle catégorie',
+            'menu_name' => 'Catégories',
+        ],
+        'show_in_rest' => true,
+        'hierarchical' => true,
+        'show_admin_column' => true,
+        'has_archive' => true,
+    ]);
+};
+
+add_action('init', 'motatheme_init');
 add_action('after_setup_theme', 'motatheme_supports');
 add_filter('nav_menu_css_class', 'motatheme_menu_class');
 add_filter('nav_menu_link_attributes', 'motatheme_menu__link_class');

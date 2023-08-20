@@ -1,9 +1,14 @@
 // Get the modal
-let modal = document.getElementById('myModal');
+let modal = document.getElementById("myModal");
 let btn = document.getElementById("myBtn");
 let span = document.querySelector(".close");
+let contactMenu = document.querySelector(".contact-menu");
 
 // Lorsqu'on clique sur le bouton, on ouvre la modale
+contactMenu.onclick = function() {
+    modal.style.display = "block";
+}
+
 btn.onclick = function() {
     modal.style.display = "block";
 }
@@ -19,3 +24,21 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
+// miniatures photos suivante et précédente qui apparaissent au survol
+jQuery(document).ready(function($) {
+    $('.prev-link').hover(function() {
+        var prevThumbnail = $(this).find('.nav-thumbnail').html();
+        $('.prev-thumbnail').html(prevThumbnail).show();
+    }, function() {
+        $('.prev-thumbnail').hide();
+    });
+
+    $('.next-link').hover(function() {
+        var nextThumbnail = $(this).find('.nav-thumbnail').html();
+        $('.next-thumbnail').html(nextThumbnail).show();
+    }, function() {
+        $('.next-thumbnail').hide();
+    });
+});

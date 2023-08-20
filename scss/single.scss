@@ -1,0 +1,115 @@
+.single-photo {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.photo-details {
+    display: flex;
+    margin: 0 4rem;
+    justify-content: center;
+
+    .info-block {
+        flex-basis: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding-right: 10rem;
+        padding-bottom: 2rem;
+    }
+
+    .photo-block {
+        flex-basis: 50%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+}
+
+
+.full-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.fullscreen-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.interaction-block {
+    display: flex;
+    height: 118px;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 0 4rem;
+}
+
+.contact-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#myBtn {
+    width: 50%;
+    margin: 0 0 0 1rem;
+}
+
+
+// Style images suivante et précédente
+// .nav-links {
+//     // display: flex;
+//     // // gap: 20px;
+//     // justify-content: end;
+//     // flex-basis: 50%;
+//     // height: inherit;
+//     // align-items: end;
+
+//         .nav-links-container {
+//             // display: flex;
+//             // gap: 1rem;
+//         }
+// }
+
+// .modale-single {
+//     display: flex;
+//     align-items: center;
+//     flex-basis: 50%;
+//     justify-content: space-between;
+// }
+
+// .nav-link {
+//     // display: flex;
+//     // align-items: center;
+//     // text-decoration: none;
+//     // cursor: pointer;
+    
+// }
+
+// .nav-thumbnail {
+//     display: none;
+//     // position: absolute;
+//     // margin-top: -7rem;
+
+//         img {
+//             // height: auto;
+//             // width: 6rem;
+//         }
+// }
+
+// .nav-link:hover .nav-thumbnail {
+//     display: inline-block;
+// }
+
+// .prev-link:hover .nav-thumbnail {
+//     display: inline-block;
+// }
+
+// .next-link:hover .nav-thumbnail {
+//     display: inline-block;
+// }
