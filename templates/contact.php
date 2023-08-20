@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label for="Réf. photo">Réf. photo</label>
-                    <input type="text" name="Réf. photo" id="">                    
+                    <input type="text" name="Réf. photo" id="referenceField">                    
                 </div>
                 <div>
                     <label for="Message">Message</label>

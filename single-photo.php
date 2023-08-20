@@ -21,24 +21,24 @@
         <div class="interaction-block">
             <div class="modale-single">
                 <p>Cette photo vous intéresse ?</p>
-                <button id="myBtn">Contact</button>
+                <button id="myBtn" class="prefill-reference" <?php if (is_single()) { echo 'data-reference="' . get_field('reference') . '"'; } ?>>Contact</button>
                 <!-- on récupère la modale de contact -->
                 <?php get_template_part('templates/contact') ?>
             </div>
             <div class="nav-links">
                 <div class="nav-links-container">
                     <a href="<?php echo get_permalink(get_adjacent_post(false, '', false)); ?>" class="nav-link prev-link">
-                        <span class="nav-thumbnail">
+                        <span class="nav-thumbnail prev-img">
                             <?php echo get_the_post_thumbnail(get_adjacent_post(false, '', false), 'thumbnail'); ?>
                         </span>
-                        <img src="<?php echo get_template_directory_uri() . '/assets/images/arrow-left.png'; ?>" alt="flèche gauche">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/arrow-left.png'; ?>" alt="flèche gauche" id="arrow-left">
                     </a>
                     <!-- <div class="prev-thumbnail"></div> -->
                     <a href="<?php echo get_permalink(get_adjacent_post(false, '', true)); ?>" class="nav-link next-link">
-                        <span class="nav-thumbnail">
+                        <span class="nav-thumbnail next-img">
                             <?php echo get_the_post_thumbnail(get_adjacent_post(false, '', true), 'thumbnail'); ?>
                         </span>
-                        <img src="<?php echo get_template_directory_uri() . '/assets/images/arrow-right.png'; ?>" alt="flèche droite">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/arrow-right.png'; ?>" alt="flèche droite" id="arrow-right">
                     </a>
                     <!-- <div class="next-thumbnail"></div> -->
                 </div>

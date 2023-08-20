@@ -11,34 +11,44 @@ contactMenu.onclick = function() {
 
 btn.onclick = function() {
     modal.style.display = "block";
+    // referenceField.value = referenceValue;
 }
 
 // Lorsqu'on clique sur la croix, on ferme la modale
 span.onclick = function() {
     modal.style.display = "none";
+    resetReferenceField();
 }
 
 // Lorsqu'on clique n'importe où sur le background, la modale se ferme
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        resetReferenceField();
     }
 }
 
+// Remplir le champs "Réf. photo" automatiquement dans le single
+let prefillButtons = document.querySelectorAll(".prefill-reference");
 
-// miniatures photos suivante et précédente qui apparaissent au survol
-jQuery(document).ready(function($) {
-    $('.prev-link').hover(function() {
-        var prevThumbnail = $(this).find('.nav-thumbnail').html();
-        $('.prev-thumbnail').html(prevThumbnail).show();
-    }, function() {
-        $('.prev-thumbnail').hide();
-    });
+function prefillReferenceField(referenceValue) {
+    let referenceField = document.getElementById("referenceField");
+    referenceField.value = referenceValue;
+}
 
-    $('.next-link').hover(function() {
-        var nextThumbnail = $(this).find('.nav-thumbnail').html();
-        $('.next-thumbnail').html(nextThumbnail).show();
-    }, function() {
-        $('.next-thumbnail').hide();
+prefillButtons.forEach(function(button) {
+    button.addEventListener("click", function() {        
+        let referenceValue = this.getAttribute("data-reference");
+        // On vérifie si le bouton a la classe .contact-menu
+        if (!button.classList.contains("contact-menu")) {
+            prefillReferenceField(referenceValue);
+            modal.style.display = "block";
+        }
     });
 });
+
+// Fonction pour réinitialiser le champ Réf. photo
+function resetReferenceField() {
+    let referenceField = document.getElementById("referenceField");
+    referenceField.value = "";
+}
