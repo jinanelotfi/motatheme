@@ -28,7 +28,7 @@
                     <label for="Message">Message</label>
                     <input type="text" name="Message" id="message-area">                    
                 </div>
-                <button type="submit">Envoyer</button>
+                <button type="submit" class="button">Envoyer</button>
             </form>
         </div>
     </div>

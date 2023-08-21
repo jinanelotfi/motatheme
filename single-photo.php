@@ -41,7 +41,9 @@
                 </div>
             </div>
         </div>
+        <!-- Ajout du block photos similaires -->
         <?php get_template_part('templates/photo_block'); ?>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="button">Toutes les photos</a>
     <?php endwhile; ?>
     
 

@@ -1,21 +1,51 @@
-.similar-container {
-    display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem auto;
+.related-photos-block {  
+    margin: 4rem;
 
-    .photo-block {
+    h2 {
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    .similar-container {
         display: flex;
-        flex-basis: 50%;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        gap: 1rem;
+        margin: 3rem auto;
 
         a {
             display: flex;
+            flex-basis: 50%;
             width: 100%;
-            // flex-basis: 40%;
+            height: 23rem;
+
+            .sim-image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                object-position: center;
+            }
         }
+    }
+}
+
+.button {
+    display: block;
+    padding: 1rem 2rem;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #D8D8D8D8;
+    width: 60%;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    margin: 0 auto 4rem auto;
+
+    &:hover {
+        background-color: var(--black);
+        color: var(--white);
+        cursor: pointer;
     }
 }
