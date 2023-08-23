@@ -9,10 +9,10 @@ contactMenu.onclick = function() {
     modal.style.display = "block";
 }
 
+if (btn != null) {
 btn.onclick = function() {
     modal.style.display = "block";
-    // referenceField.value = referenceValue;
-}
+}}
 
 // Lorsqu'on clique sur la croix, on ferme la modale
 span.onclick = function() {
@@ -52,3 +52,5 @@ function resetReferenceField() {
     let referenceField = document.getElementById("referenceField");
     referenceField.value = "";
 }
+
+// Bouton Load more Ajax 

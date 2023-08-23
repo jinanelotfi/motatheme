@@ -1,8 +1,14 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
 function theme_enqueue_styles() {
     wp_enqueue_style('motatheme-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), filemtime(get_stylesheet_directory() . '/dist/css/style.css'));
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/parts/main.js', array(), filemtime(get_stylesheet_directory() . '/parts/main.js'), true);
+    
+    // Chargement des scripts pour Ajax bouton load-more
+    wp_enqueue_script('load-more', get_template_directory_uri() . '/parts/script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/script.js'), true);
+    wp_localize_script('load-more', 'load_js', array('ajax_url' => admin_url('admin-ajax.php')));
+   
     
 }
 
@@ -52,3 +58,33 @@ add_action('init', 'motatheme_init');
 add_action('after_setup_theme', 'motatheme_supports');
 add_filter('nav_menu_css_class', 'motatheme_menu_class');
 add_filter('nav_menu_link_attributes', 'motatheme_menu__link_class');
+
+
+
+// script Ajax
+function mota_galerie_request() {
+    $query = new WP_Query([
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    ]);
+
+    $response = '';
+
+    if($query->have_posts()) {
+        while($query->have_posts()) : $query->the_post();
+        $response .= get_template_part('templates/post-boucle');
+        endwhile;       
+    } else {
+        $response = '';
+    }
+
+    echo $response;
+    exit;
+    wp_die();
+}
+
+add_action('wp_ajax_request_gallery', 'mota_galerie_request');
+add_action('wp_ajax_nopriv_request_gallery', 'mota_galerie_request');

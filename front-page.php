@@ -6,30 +6,26 @@
         // WP_Query pour afficher les éléments du CPT "photo"
         $args = array(
             'post_type' => 'photo',
-            'posts_per_page' => -1,
+            'posts_per_page' => 12,
         );
 
         $query = new WP_Query($args);
         ?>
 
         <?php if ($query->have_posts()) : ?>
-            <div class="gallery-container">
-                <!-- <div class="gallery-item"> -->
+            <div class="gallery-container" id="ajax_return">
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <!-- <div class="gallery-item"> -->
-                        <a href="<?php the_permalink() ?>">
-                        <?php the_post_thumbnail('medium', ['class' => 'image-gallery']) ?>
-                        </a>
-                    <!-- </div> -->
+                        <?php get_template_part('templates/post-boucle'); ?>               
                 <?php endwhile ?>
-                
-                <?php wp_reset_postdata() ?>
-                <!-- </div> -->
             </div>
         <?php else : ?>
             <h1>Pas d'article</h1>    
         <?php endif; ?>
+        <?php wp_reset_postdata() ?>
+        <!-- bouton Chargez plus -->
+        <?php get_template_part('templates/load-more'); ?>
     </div>
+    
 
 
 </main>
