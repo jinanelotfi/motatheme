@@ -21,7 +21,9 @@
     
     while($query->have_posts()): $query->the_post();
     ?>
-        <?php get_template_part('templates/post-boucle'); ?>
+        <?php 
+        $context = 'photo_block';
+        get_template_part('templates/post-boucle'); ?>
     <?php endwhile; wp_reset_postdata(); ?>
 
 </div>

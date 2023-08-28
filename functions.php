@@ -61,7 +61,7 @@ add_filter('nav_menu_link_attributes', 'motatheme_menu__link_class');
 
 
 
-// script Ajax
+// script Ajax bouton load more
 function mota_galerie_request() {
     $query = new WP_Query([
         'post_type' => 'photo',
@@ -84,7 +84,95 @@ function mota_galerie_request() {
     echo $response;
     exit;
     wp_die();
+
+    
 }
 
 add_action('wp_ajax_request_gallery', 'mota_galerie_request');
 add_action('wp_ajax_nopriv_request_gallery', 'mota_galerie_request');
+
+
+// script Filtres
+function mota_galerie_request_by_category() {
+    $category = $_POST['category'];
+
+    $query_args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    );
+
+    if ($category !== 'all') {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'categorie',
+                'field' => 'slug',
+                'terms' => $category,
+            ),
+        );
+    }
+
+    $query = new WP_Query($query_args);
+
+    $response = '';
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) : $query->the_post();
+            $response .= get_template_part('templates/post-boucle');
+        endwhile;
+    } else {
+        $response = '';
+    }
+
+    echo $response;
+    exit;
+}
+
+add_action('wp_ajax_request_gallery_by_category', 'mota_galerie_request_by_category');
+add_action('wp_ajax_nopriv_request_gallery_by_category', 'mota_galerie_request_by_category');
+
+function mota_galerie_request_by_format() {
+    $format = $_POST['format'];
+
+    $query_args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    );
+
+    if ($format !== 'all') {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'format',
+                'field' => 'slug',
+                'terms' => $format,
+            ),
+        );
+    }
+
+    $query = new WP_Query($query_args);
+
+    $response = '';
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) : $query->the_post();
+            $response .= get_template_part('templates/post-boucle');
+        endwhile;
+    } else {
+        $response = '';
+    }
+
+    echo $response;
+    exit;
+}
+
+add_action('wp_ajax_request_gallery_by_format', 'mota_galerie_request_by_format');
+add_action('wp_ajax_nopriv_request_gallery_by_format', 'mota_galerie_request_by_format');
+
+// select des dates
+
+

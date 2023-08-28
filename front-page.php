@@ -12,10 +12,16 @@
         $query = new WP_Query($args);
         ?>
 
+        <!-- Section Filtres -->
+        <?php get_template_part('templates/filter-cat'); ?>
+        <?php get_template_part('templates/filter-format'); ?>
+        <!-- Fin section Filtres -->
+
+
         <?php if ($query->have_posts()) : ?>
             <div class="gallery-container" id="ajax_return">
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
-                        <?php get_template_part('templates/post-boucle'); ?>               
+                    <?php get_template_part('templates/post-boucle'); ?>               
                 <?php endwhile ?>
             </div>
         <?php else : ?>
@@ -23,9 +29,11 @@
         <?php endif; ?>
         <?php wp_reset_postdata() ?>
         <!-- bouton Chargez plus -->
+
         <?php get_template_part('templates/load-more'); ?>
     </div>
     
+  
 
 
 </main>

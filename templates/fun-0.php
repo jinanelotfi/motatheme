@@ -4,29 +4,11 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style('motatheme-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), filemtime(get_stylesheet_directory() . '/dist/css/style.css'));
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/parts/main.js', array(), filemtime(get_stylesheet_directory() . '/parts/main.js'), true);
-    // wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/parts/main.js', array(), filemtime(get_stylesheet_directory() . '/parts/script.js'), true);
-    $args = array(
-        'post_type' => 'photo', // Remplacez par le type de publication que vous chargez
-        'posts_per_page' => -1, // Charger toutes les publications
-    );
-
-    $posts_query = new WP_Query($args);
-
-    $post_ids = wp_list_pluck($posts_query->posts, 'ID');
-
-    $posts_per_page = 1; // Nombre de publications par page
-    $total_posts = $posts_query->found_posts; // Nombre total de publications
-
-    $your_max_page_number = ceil($total_posts / $posts_per_page);
-
-    wp_enqueue_script('capitaine', get_template_directory_uri() . '/parts/script.js', ['jquery'], '1.0', true);
-    wp_localize_script('capitaine', 'load_more_params', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-        'posts' => json_encode($post_ids),
-        'current_page' => 1,
-        'max_page' => $your_max_page_number,
-    ));
-
+    
+    // Chargement des scripts pour Ajax bouton load-more
+    wp_enqueue_script('load-more', get_template_directory_uri() . '/parts/script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/script.js'), true);
+    wp_localize_script('load-more', 'load_js', array('ajax_url' => admin_url('admin-ajax.php')));
+   
     
 }
 
@@ -79,78 +61,75 @@ add_filter('nav_menu_link_attributes', 'motatheme_menu__link_class');
 
 
 
-// script Ajax
-function capitaine_load_comments() {
-
-    // Ces lignes sont commentées pour pouvoir faire fonctionner le bouton sans être connecté ou publié
-
-	// Vérification de sécurité
-  	// if( 
-	// 	! isset( $_REQUEST['nonce'] ) or 
-    //    	! wp_verify_nonce( $_REQUEST['nonce'], 'capitaine_load_comments' ) 
-    // ) {
-    // 	wp_send_json_error( "Vous n’avez pas l’autorisation d’effectuer cette action.", 403 );
-  	// }
-    
-    // On vérifie que l'identifiant a bien été envoyé
-    // if( ! isset( $_POST['postid'] ) ) {
-    // 	wp_send_json_error( "L'identifiant de l'article est manquant.", 403 );
-  	// }
-    // Fin du commentaire des lignes de code de sécurité et vérification 
-
-    
-  	// Récupération des données du formulaire
-  	$post_id = intval( $_POST['postid'] );
-    
-	// Vérifier que l'article est publié, et public
-	// if( get_post_status( $post_id ) !== 'publish' ) {
-    // 	wp_send_json_error( "Vous n'avez pas accès aux commentaires de cet article.", 403 );
-	// }
-
-  	// Utilisez sanitize_text_field() pour les chaines de caractères.
-  	// exemple : 
-    $name = sanitize_text_field( $_POST['name'] );
-
-  	// Requête des commentaires
-  	// $comments = get_comments([
-    // 	'post_id' => $post_id,
-    // 	'status' => 'approve'
-  	// ]);
-
-  	// // Préparer le HTML des commentaires
-  	// $html = wp_list_comments([
-    // 	'per_page' => -1,
-    // 	'avatar_size' => 76,
-    // 	'echo' => false,
-  	// ], $comments );
-      $args = array(
+// script Ajax bouton load more
+function mota_galerie_request() {
+    $query = new WP_Query([
         'post_type' => 'photo',
-        'paged' => $_POST['page'] + 1,
-    );
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    ]);
 
-    $query = new WP_Query($args);
+    $response = '';
 
-    ob_start(); // Début de la capture de sortie
-    if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post(); ?>
-            <!-- Capture le contenu du template photo_block.php -->
-            <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail('medium', ['class' => 'image-gallery']); ?>
-            </a>
-        <?php endwhile;
-    endif;
-    $gallery_html = ob_get_clean(); // Fin de la capture et récupération du contenu
+    if($query->have_posts()) {
+        while($query->have_posts()) : $query->the_post();
+        $response .= get_template_part('templates/post-boucle');
+        endwhile;       
+    } else {
+        $response = '';
+    }
 
-    // Envoyer les données au navigateur
-    wp_send_json_success(array('gallery_html' => $gallery_html));
-    
-    
-    
-    
+    echo $response;
+    exit;
+    wp_die();
 
-  	// Envoyer les données au navigateur
-	// wp_send_json_success( $query );
+    
 }
 
-add_action( 'wp_ajax_capitaine_load_comments', 'capitaine_load_comments' );
-add_action( 'wp_ajax_nopriv_capitaine_load_comments', 'capitaine_load_comments' );
+add_action('wp_ajax_request_gallery', 'mota_galerie_request');
+add_action('wp_ajax_nopriv_request_gallery', 'mota_galerie_request');
+
+
+// script Filtres
+function mota_galerie_request_by_category() {
+    $category = $_POST['category'];
+
+    $query_args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    );
+
+    if ($category !== 'all') {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'categorie',
+                'field' => 'slug',
+                'terms' => $category,
+            ),
+        );
+    }
+
+    $query = new WP_Query($query_args);
+
+    $response = '';
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) : $query->the_post();
+            $response .= get_template_part('templates/post-boucle');
+        endwhile;
+    } else {
+        $response = '';
+    }
+
+    echo $response;
+    exit;
+}
+
+add_action('wp_ajax_request_gallery_by_category', 'mota_galerie_request_by_category');
+add_action('wp_ajax_nopriv_request_gallery_by_category', 'mota_galerie_request_by_category');
+
