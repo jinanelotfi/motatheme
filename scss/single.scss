@@ -34,18 +34,94 @@
         a {
             display: flex;
             width: 100%;
-            height: 100%;
+            height: auto;      
+            position: relative;      
 
             .full-image {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
             }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+    
+            &:hover::before {
+                opacity: 1;
+            }
+
+            .photo-icons {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: none;
+                // display: none;
+                transition: opacity 0.3s ease;
+    
+                .icon {
+                    display: inline-block;
+                    margin: 8px;
+
+                    &.info-icon {
+                        text-align: center;
+
+                        .eye-image {
+                            display: block;
+                            margin: 0 auto; // Centrer l'icône horizontalement
+                            width: 40px;
+                            height: auto;
+                        }
+                    }
+
+                    &.full-screen-icon {
+
+                        .full-screen-image {
+                            width: 40px;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+    
+            &:hover .photo-icons {
+                display: flex;
+                opacity: 1;
+            }
+        
         }
 
     }
 }
 
+// essai calque sur photo
+// .photo-block a::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.8); 
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+//     pointer-events: none;
+// }
+
+// .photo-block a:hover::before {
+//     opacity: 1;
+// }
+
+// fin essai calque sur photo
 
 .interaction-block {
     display: flex;

@@ -188,12 +188,26 @@ footer {
     display: flex;
     flex-basis: 40%;
     width: 100%;
-    height: 23rem; }
+    height: 23rem;
+    position: relative; }
     .gallery-container a .sim-image {
       width: 100%;
       height: auto;
       object-fit: cover;
       object-position: center; }
+    .gallery-container a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none; }
+    .gallery-container a:hover::before {
+      opacity: 1; }
 
 .single-photo {
   display: flex;
@@ -224,11 +238,47 @@ footer {
     .photo-details .photo-block a {
       display: flex;
       width: 100%;
-      height: 100%; }
+      height: auto;
+      position: relative; }
       .photo-details .photo-block a .full-image {
         width: 100%;
         height: 100%;
         object-fit: contain; }
+      .photo-details .photo-block a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none; }
+      .photo-details .photo-block a:hover::before {
+        opacity: 1; }
+      .photo-details .photo-block a .photo-icons {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: none;
+        transition: opacity 0.3s ease; }
+        .photo-details .photo-block a .photo-icons .icon {
+          display: inline-block;
+          margin: 8px; }
+          .photo-details .photo-block a .photo-icons .icon.info-icon {
+            text-align: center; }
+            .photo-details .photo-block a .photo-icons .icon.info-icon .eye-image {
+              display: block;
+              margin: 0 auto;
+              width: 40px;
+              height: auto; }
+          .photo-details .photo-block a .photo-icons .icon.full-screen-icon .full-screen-image {
+            width: 40px;
+            height: auto; }
+      .photo-details .photo-block a:hover .photo-icons {
+        display: flex;
+        opacity: 1; }
 
 .interaction-block {
   display: flex;
@@ -322,6 +372,98 @@ footer {
     background-color: var(--black);
     color: var(--white);
     cursor: pointer; }
+
+::-webkit-scrollbar {
+  width: 7px; }
+
+::-webkit-scrollbar-track {
+  background: white;
+  padding: 1px; }
+
+::-webkit-scrollbar-thumb {
+  background: #9ca2b0;
+  border-radius: 4px; }
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  overflow: auto;
+  animation: lightboxIn .5s;
+  transition: opacity .3s; }
+
+.lightbox.fadeOut {
+  opacity: 0; }
+
+.lightbox_prev,
+.lightbox_next {
+  color: var(--white);
+  border: none;
+  width: 50px;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  z-index: 11;
+  margin-top: -14px;
+  text-indent: -3000px; }
+
+.lightbox_prev {
+  background: url("../../assets/images/arrow-left.png");
+  background-repeat: no-repeat;
+  right: auto;
+  left: 20px; }
+
+.lightbox_next {
+  background: url("../../assets/images/arrow-right.png");
+  background-repeat: no-repeat;
+  right: 20px; }
+
+.lightbox_close {
+  font-size: 2rem;
+  color: var(--white);
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 12; }
+
+.lightbox button {
+  opacity: .5;
+  cursor: pointer;
+  transition: opacity .3s; }
+
+.lightbox button:hover {
+  opacity: 1; }
+
+.lightbox_container img {
+  max-width: 100%;
+  max-height: 100vh;
+  height: auto;
+  animation: lightboxIn .5s; }
+
+.lightbox_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  min-height: 100vh; }
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.lightbox_loader {
+  width: 38px;
+  height: 38px;
+  opacity: .5;
+  background: url(../../assets/images/loader.svg) center center no-repeat; }
 
 * {
   box-sizing: border-box; }

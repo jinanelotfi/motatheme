@@ -7,6 +7,9 @@ if (isset($context) && $context === 'photo_block') {
 }
 ?>
 
-<a href="<?php echo $link; ?>" class="lightbox-link">
+<a href="<?php echo $link; ?>" >
     <?php the_post_thumbnail('full', ['class' => 'sim-image']); ?>
+    
 </a>
+
+<!-- class="lightbox-link" -->
