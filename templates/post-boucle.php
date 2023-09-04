@@ -7,9 +7,8 @@ if (isset($context) && $context === 'photo_block') {
 }
 ?>
 
-<a href="<?php echo $link; ?>" >
+<div class="gallery-boucle" >
     <?php the_post_thumbnail('full', ['class' => 'sim-image']); ?>
+    <?php get_template_part('templates/overlay') ?>
     
-</a>
-
-<!-- class="lightbox-link" -->
+</div>

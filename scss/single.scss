@@ -31,13 +31,13 @@
         align-items: center;
         flex-basis: 50%;
 
-        a {
+        .gallery-boucle {
             display: flex;
             width: 100%;
             height: auto;      
             position: relative;      
 
-            .full-image {
+            .sim-image {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
@@ -59,43 +59,10 @@
             &:hover::before {
                 opacity: 1;
             }
-
-            .photo-icons {
-                position: absolute;
-                top: 0;
-                right: 0;
-                transform: none;
-                // display: none;
-                transition: opacity 0.3s ease;
-    
-                .icon {
-                    display: inline-block;
-                    margin: 8px;
-
-                    &.info-icon {
-                        text-align: center;
-
-                        .eye-image {
-                            display: block;
-                            margin: 0 auto; // Centrer l'icône horizontalement
-                            width: 40px;
-                            height: auto;
-                        }
-                    }
-
-                    &.full-screen-icon {
-
-                        .full-screen-image {
-                            width: 40px;
-                            height: auto;
-                        }
-                    }
-                }
-            }
     
             &:hover .photo-icons {
                 display: flex;
-                opacity: 1;
+                opacity: 1;                
             }
         
         }
@@ -103,25 +70,6 @@
     }
 }
 
-// essai calque sur photo
-// .photo-block a::before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background-color: rgba(0, 0, 0, 0.8); 
-//     opacity: 0;
-//     transition: opacity 0.3s ease;
-//     pointer-events: none;
-// }
-
-// .photo-block a:hover::before {
-//     opacity: 1;
-// }
-
-// fin essai calque sur photo
 
 .interaction-block {
     display: flex;
@@ -131,10 +79,6 @@
     border-bottom: 1px solid black;
 }
 
-// .contact-link {
-//     text-decoration: underline;
-//     cursor: pointer;
-// }
 
 #myBtn {
     width: 50%;
@@ -164,13 +108,6 @@
     justify-content: space-between;
 }
 
-// .nav-link {
-//     // display: flex;
-//     // align-items: center;
-//     // text-decoration: none;
-//     // cursor: pointer;
-    
-// }
 
 .nav-thumbnail {
     display: none;
@@ -189,9 +126,6 @@
     width: 2rem;
 }
 
-// .prev-img {
-//     margin-left: 1rem;
-// }
 
 .next-img {
     margin-left: -3rem;

@@ -94,27 +94,39 @@ add_action('wp_ajax_nopriv_request_gallery', 'mota_galerie_request');
 
 // script Filtres
 function mota_galerie_request_by_category() {
-    $category = $_POST['category'];
+    $category = isset($_POST['category']) ? $_POST['category'] : 'all';
+    $format = isset($_POST['format']) ? $_POST['format'] : 'all';
+    $date = isset($_POST['date']) ? $_POST['date'] : 'desc';
+    $tax_query =  array('relation' => 'AND');
+    var_dump($category, $format, $tax_query);
+
+    if ($category !== 'all') {
+        $tax_query[] = array(
+            'taxonomy' => 'categorie',
+            'field' => 'slug',
+            'terms' => $category,
+          );
+    }    
+
+    if ($format !== 'all') {
+        $tax_query[] = array(
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => $format,
+          );
+    }
 
     $query_args = array(
         'post_type' => 'photo',
         'posts_per_page' => 12,
         'orderby' => 'date',
-        'order' => 'DESC',
+        'order' => $date,
         'paged' => $_POST['paged'],
+        'tax_query' => $tax_query
     );
 
-    if ($category !== 'all') {
-        $query_args['tax_query'] = array(
-            array(
-                'taxonomy' => 'categorie',
-                'field' => 'slug',
-                'terms' => $category,
-            ),
-        );
-    }
-
     $query = new WP_Query($query_args);
+    var_dump($query->have_posts());
 
     $response = '';
 
@@ -128,50 +140,53 @@ function mota_galerie_request_by_category() {
 
     echo $response;
     exit;
+
 }
 
 add_action('wp_ajax_request_gallery_by_category', 'mota_galerie_request_by_category');
 add_action('wp_ajax_nopriv_request_gallery_by_category', 'mota_galerie_request_by_category');
 
-function mota_galerie_request_by_format() {
-    $format = $_POST['format'];
 
-    $query_args = array(
-        'post_type' => 'photo',
-        'posts_per_page' => 12,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'paged' => $_POST['paged'],
-    );
+// select des formats
+// function mota_galerie_request_by_format() {
+//     $format = $_POST['format'];
 
-    if ($format !== 'all') {
-        $query_args['tax_query'] = array(
-            array(
-                'taxonomy' => 'format',
-                'field' => 'slug',
-                'terms' => $format,
-            ),
-        );
-    }
+//     $query_args = array(
+//         'post_type' => 'photo',
+//         'posts_per_page' => 12,
+//         'orderby' => 'date',
+//         'order' => 'DESC',
+//         'paged' => $_POST['paged'],
+//     );
 
-    $query = new WP_Query($query_args);
+//     if ($format !== 'all') {
+//         $query_args['tax_query'] = array(
+//             array(
+//                 'taxonomy' => 'format',
+//                 'field' => 'slug',
+//                 'terms' => $format,
+//             ),
+//         );
+//     }
 
-    $response = '';
+//     $query = new WP_Query($query_args);
 
-    if ($query->have_posts()) {
-        while ($query->have_posts()) : $query->the_post();
-            $response .= get_template_part('templates/post-boucle');
-        endwhile;
-    } else {
-        $response = '';
-    }
+//     $response = '';
 
-    echo $response;
-    exit;
-}
+//     if ($query->have_posts()) {
+//         while ($query->have_posts()) : $query->the_post();
+//             $response .= get_template_part('templates/post-boucle');
+//         endwhile;
+//     } else {
+//         $response = '';
+//     }
 
-add_action('wp_ajax_request_gallery_by_format', 'mota_galerie_request_by_format');
-add_action('wp_ajax_nopriv_request_gallery_by_format', 'mota_galerie_request_by_format');
+//     echo $response;
+//     exit;
+// }
+
+// add_action('wp_ajax_request_gallery_by_format', 'mota_galerie_request_by_format');
+// add_action('wp_ajax_nopriv_request_gallery_by_format', 'mota_galerie_request_by_format');
 
 // select des dates
 

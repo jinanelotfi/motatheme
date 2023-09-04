@@ -12,19 +12,7 @@
                 <p>Date de prise de vue: <?php echo get_the_date('Y'); ?></p>                    
             </div>
             <div class="photo-block">
-                <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>">
-                    <?php the_post_thumbnail('full', ['class' => 'full-image']); ?>
-                    <!-- Ajout des icones au survol -->
-                    <div class="photo-icons">
-                        <div class="icon info-icon">
-                            <img class="eye-image" src="<?php echo get_template_directory_uri() . '/assets/images/eye.png'; ?>" alt="">
-                        </div>
-                        <div class="icon full-screen-icon">
-                            <img class="full-screen-image" src="<?php echo get_template_directory_uri() . '/assets/images/full-screen.png'; ?>" alt="">
-                        </div>
-                    </div>
-                    <!-- Fin icones -->
-                </a>
+                <?php get_template_part('templates/post-boucle') ?>
             </div>
         </div>
         <div class="interaction-block">

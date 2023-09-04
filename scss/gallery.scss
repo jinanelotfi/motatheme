@@ -6,7 +6,7 @@
     margin: 3rem auto;
     flex-wrap: wrap;
     
-    a {
+    .gallery-boucle {
         display: flex;
         flex-basis: 40%;
         width: 100%;
@@ -35,6 +35,11 @@
 
         &:hover::before {
             opacity: 1;
+        }
+
+        &:hover .photo-icons {
+            display: flex;
+            opacity: 1;                
         }
     }
 }

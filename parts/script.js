@@ -1,4 +1,8 @@
 let currentPage = 1;
+let category = 'all';
+let format = 'all';
+let date = 'desc';
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('ajax_call').addEventListener('click', function() {
       currentPage++;
@@ -31,28 +35,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Select des catégories
+
+function ajaxFun () {
+    let formData = new FormData();
+    formData.append('action', 'request_gallery_by_category');
+    formData.append('category', category);
+    formData.append('format', format);
+    formData.append('paged', currentPage);
+
+    fetch(load_js.ajax_url, {
+        method: 'POST',
+        body: formData,
+    }).then(function(response) {
+        if (!response.ok) {
+            throw new Error('Network response error.');
+        }
+        
+        return response.text();
+    }).then(function(html) {
+        document.getElementById('ajax_return').innerHTML = html;
+    }).catch(function(error) {
+        console.error('There was a problem with the fetch operation: ', error);
+    });
+
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('category-filter').addEventListener('change', function() {
-      let selectedCategory = this.value;
-      let formData = new FormData();
-      formData.append('action', 'request_gallery_by_category');
-      formData.append('category', selectedCategory);
-      formData.append('paged', 1);
+      category = this.value;
+      ajaxFun()
 
-      fetch(load_js.ajax_url, {
-          method: 'POST',
-          body: formData,
-      }).then(function(response) {
-          if (!response.ok) {
-              throw new Error('Network response error.');
-          }
-          
-          return response.text();
-      }).then(function(html) {
-          document.getElementById('ajax_return').innerHTML = html;
-      }).catch(function(error) {
-          console.error('There was a problem with the fetch operation: ', error);
-      });
   });
 });
 
@@ -60,29 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // Select des formats
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('format-filter').addEventListener('change', function() {
-      let selectedFormat = this.value;
-      let formData = new FormData();
-      formData.append('action', 'request_gallery_by_format');
-      formData.append('format', selectedFormat);
-      formData.append('paged', 1);
-
-      fetch(load_js.ajax_url, {
-          method: 'POST',
-          body: formData,
-      }).then(function(response) {
-          if (!response.ok) {
-              throw new Error('Network response error.');
-          }
-          
-          return response.text();
-      }).then(function(html) {
-          document.getElementById('ajax_return').innerHTML = html;
-      }).catch(function(error) {
-          console.error('There was a problem with the fetch operation: ', error);
-      });
+      format = this.value;
+      ajaxFun()
   });
 });
 
 // Select des dates
-
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('date-sort').addEventListener('change', function() {
+      date = this.value;
+      ajaxFun()
+  });
+});
 
