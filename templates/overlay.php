@@ -4,7 +4,8 @@
             <img class="eye-image" src="<?php echo get_template_directory_uri() . '/assets/images/eye.png'; ?>" alt="">
         </a>
     </div>
-    <div class="icon full-screen-icon">
+    <div class="icon full-screen-icon" id="fullScreenIcon">
+
         <img class="full-screen-image" src="<?php echo get_template_directory_uri() . '/assets/images/full-screen.png'; ?>" alt="">
     </div>
     <div class="icon cat-ref-lightbox">

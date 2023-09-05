@@ -8,6 +8,14 @@
 }
 
 @font-face {
+    font-family: 'SpaceMono-Bold';
+    src: url('../../fonts/SpaceMono-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: bold;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Poppins';
     src: url('../../fonts/Poppins-Regular.woff') format('woff');
     font-weight: normal;

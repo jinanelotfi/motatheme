@@ -60,11 +60,13 @@ function resetReferenceField() {
 class Lightbox {
 
     static init() {
-        const fullScreenIcon = document.getElementById('fullScreenIcon');
-        fullScreenIcon.addEventListener('click', e => {
-            e.preventDefault();
-            new Lightbox(e.currentTarget.getAttribute('href'))
-        });
+        const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"]'))
+        const gallery = links.map(link => link.getAttribute('href'))
+
+        links.forEach(link => link.addEventListener('click', e => {
+            e.preventDefault()                
+            new Lightbox(e.currentTarget.getAttribute('href'), gallery)
+        }))
     }
 
     // @param {string} url URL de l'image
@@ -151,25 +153,12 @@ class Lightbox {
         const dom = document.createElement('div')
         dom.classList.add('lightbox')
         dom.innerHTML = `
-            <div class="close-light">
-                <p>x</p>
-            </div>
-            <div class="arrow-lightbox">
-                <div class="lightbox_prev">        
-                    <p>Précédent</p>
-                </div>
-                <div class="lightbox_next">
-                    <p>suivant</p>
-                </div>
-            </div>
-            <div class="lightbox_container"> 
-                <img src="<?php echo get_template_directory_uri() . '\assets\images\nathalie-4.jpeg'; ?>" alt="">
-                <div class="ref-cate-light">
-                    <p>référence</p>
-                    <p>catégorie</p>
-                </div>           
+            <button class="lightbox_close">x</button>
+            <button class="lightbox_next">suivant</button>
+            <button class="lightbox_prev">précédent</button>
+            <div class="lightbox_container">            
             </div>`
-        dom.querySelector('.close-light').addEventListener('click', this.close.bind(this))
+        dom.querySelector('.lightbox_close').addEventListener('click', this.close.bind(this))
         dom.querySelector('.lightbox_next').addEventListener('click', this.next.bind(this))
         dom.querySelector('.lightbox_prev').addEventListener('click', this.prev.bind(this))
         return dom
@@ -179,6 +168,39 @@ class Lightbox {
 
 Lightbox.init();
 
+// On ouvre la lightbox lorsqu'on clique sur l'icone fullscreen
+document.addEventListener('DOMContentLoaded', function () {
+    const fullScreenButton = document.querySelector('.full-screen-image');
+    
+    fullScreenButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        new Lightbox('url', []);
+    });
+});
 
+
+// Modale Lightbox
+// Get the modal
+let modaleLightbox = document.getElementById('myLightbox');
+let btnLight = document.getElementById("btnLight");
+let closeLight = document.getElementById("close-light");
+
+// When the user clicks on the button, open the modaleLightbox
+btnLight.onclick = function() {
+    modaleLightbox.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modaleLightbox
+closeLight.onclick = function() {
+    modaleLightbox.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modaleLightbox, close it
+window.onclick = function(event) {
+    if (event.target == modaleLightbox) {
+        modaleLightbox.style.display = "none";
+        console.log('coucou');
+    }
+}
 
 
