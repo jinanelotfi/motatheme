@@ -47,28 +47,28 @@
         align-items: center;
 
         .lightbox_prev {
-            background: url('../../assets/images/arrow-left-white.png');     
-            background-repeat: no-repeat;
-            right: 20px;  
-            display: flex;
-            width: 100%;
-            justify-content: flex-start;
-            color: white;   
-            height: 100%;
-            align-items: center;
+            // background: url('../../assets/images/arrow-left-white.png');     
+            // background-repeat: no-repeat;
+            // right: 20px;  
+            // display: flex;
+            // width: 100%;
+            // justify-content: flex-start;
+            // color: white;   
+            // height: 100%;
+            // align-items: center;
         }
 
         .lightbox_next {
-            background: url('../../assets/images/arrow-right-white.png');     
-            background-repeat: no-repeat;
-            right: 20px;
-            display: flex;
-            width: 100%;
-            justify-content: flex-end;
-            color: white;
-            height: 100%;
-            align-items: center;
-            flex-direction: row-reverse;
+            // background: url('../../assets/images/arrow-right-white.png');     
+            // background-repeat: no-repeat;
+            // right: 20px;
+            // display: flex;
+            // width: 100%;
+            // justify-content: flex-end;
+            // color: white;
+            // height: 100%;
+            // align-items: center;
+            // flex-direction: row-reverse;
         }
     }
 }
@@ -79,29 +79,29 @@
  
 .lightbox_prev,
 .lightbox_next {
-    // color: var(--white);
-    // border: none;    
-    // width: 50px;    
-    // height: 100%;
-    // position: fixed;
-    // top: 50%;
-    // // right: 0;
-    // z-index: 11;
-    // margin-top: -14px;
+    color: var(--white);
+    border: none;    
+    width: 50px;    
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    // right: 0;
+    z-index: 11;
+    margin-top: -14px;
     // text-indent: -3000px;
 
 }
-// .lightbox_prev {
-//     background: url('../../assets/images/arrow-left.png');    
-//     background-repeat: no-repeat;
-//     right: auto;
-//     left: 20px;
-// }
-// .lightbox_next {    
-//     background: url('../../assets/images/arrow-right.png');     
-//     background-repeat: no-repeat;
-//     right: 20px;
-// }
+.lightbox_prev {
+    background: url('../../assets/images/arrow-left.png');    
+    background-repeat: no-repeat;
+    right: auto;
+    left: 20px;
+}
+.lightbox_next {    
+    background: url('../../assets/images/arrow-right.png');     
+    background-repeat: no-repeat;
+    right: 20px;
+}
 
 .lightbox_close {
     font-size: 2rem;

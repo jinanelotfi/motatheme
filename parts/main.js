@@ -53,6 +53,10 @@ function resetReferenceField() {
     referenceField.value = "";
 }
 
+
+
+
+
 // Lightbox
 // @property {HTMLElement} element
 // @property {string[]} images Chemins des images de la lightbox
@@ -60,23 +64,28 @@ function resetReferenceField() {
 class Lightbox {
 
     static init() {
-        const fullScreenIcon = document.getElementById('fullScreenIcon');
-        fullScreenIcon.addEventListener('click', e => {
-            e.preventDefault();
-            new Lightbox(e.currentTarget.getAttribute('href'))
+        const lightboxTriggers = document.querySelectorAll('.full-screen-icon');
+        const images = Array.from(lightboxTriggers).map(trigger => trigger.getAttribute('data-url'));
+        lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', e => {
+                e.preventDefault();
+                const imageUrl = trigger.getAttribute('data-url');
+                const reference = trigger.getAttribute('data-reference');
+                new Lightbox(imageUrl, images, reference);
+            });
         });
     }
 
     // @param {string} url URL de l'image
     // @param {string[]} images Chemins des images de la lightbox
 
-    constructor(url, images) {
-        this.element = this.buildDom(url)
-        this.images = images
-        this.loadImage(url)
-        document.body.appendChild(this.element)
-        this.onKeyUp = this.onKeyUp.bind(this)
-        document.addEventListener('keyup', this.onKeyUp)
+    constructor(url, images, reference) {
+        this.element = this.buildDom(url, reference);
+        this.images = images;
+        this.loadImage(url);
+        document.body.appendChild(this.element);
+        this.onKeyUp = this.onKeyUp.bind(this);
+        document.addEventListener('keyup', this.onKeyUp);
     }
 
     // @param {string} url URL de l'image
@@ -147,7 +156,7 @@ class Lightbox {
 
     // @param {string} url URL de l'image
     //  @return {HTMLElement}
-    buildDom(url) {
+    buildDom(url, reference) {
         const dom = document.createElement('div')
         dom.classList.add('lightbox')
         dom.innerHTML = `
@@ -163,15 +172,16 @@ class Lightbox {
                 </div>
             </div>
             <div class="lightbox_container"> 
-                <img src="<?php echo get_template_directory_uri() . '\assets\images\nathalie-4.jpeg'; ?>" alt="">
                 <div class="ref-cate-light">
-                    <p>référence</p>
+                    <p>${reference}</p>
                     <p>catégorie</p>
                 </div>           
-            </div>`
+            </div>`;
         dom.querySelector('.close-light').addEventListener('click', this.close.bind(this))
         dom.querySelector('.lightbox_next').addEventListener('click', this.next.bind(this))
         dom.querySelector('.lightbox_prev').addEventListener('click', this.prev.bind(this))
+
+        console.log(dom)
         return dom
     }
 

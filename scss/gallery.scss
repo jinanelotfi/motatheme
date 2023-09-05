@@ -13,12 +13,18 @@
         height: 23rem;
         position: relative;
 
-        .sim-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            object-position: center;
-        }
+        // .lightbox-trigger {
+        //     display: flex;
+        //     width: 100%;
+        //     height: auto;
+
+            .sim-image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                object-position: center;
+            }
+        // }
 
         &::before {
             content: "";

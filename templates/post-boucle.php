@@ -9,6 +9,5 @@ if (isset($context) && $context === 'photo_block') {
 
 <div class="gallery-boucle" >
     <?php the_post_thumbnail('full', ['class' => 'sim-image']); ?>
-    <?php get_template_part('templates/overlay') ?>
-    
+    <?php get_template_part('templates/overlay') ?>    
 </div>

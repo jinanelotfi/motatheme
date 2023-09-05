@@ -1,5 +1,7 @@
 <div class="filter-container">
     <div class="filter-cat-format">
+
+    <!-- Catégorie -->
         <label for="category-filter"></label>
         <select id="category-filter">
             <option value="all">Catégories</option>
@@ -13,7 +15,8 @@
             }
             ?>
         </select>
-
+    
+    <!-- Format -->
         <label for="format-filter"></label>
         <select id="format-filter">
             <option value="all">Format</option>
@@ -29,7 +32,7 @@
         </select>
     </div>
 
-
+    <!-- Date -->
     <label for="date-sort"></label>
     <select id="date-sort">
         <option value="all">Trier par</option>
