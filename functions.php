@@ -8,6 +8,11 @@ function theme_enqueue_styles() {
     // Chargement des scripts pour Ajax bouton load-more
     wp_enqueue_script('load-more', get_template_directory_uri() . '/parts/script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/script.js'), true);
     wp_localize_script('load-more', 'load_js', array('ajax_url' => admin_url('admin-ajax.php')));
+
+    // Chargement du faux-script pour essai faux filtres 
+    // Chargement des scripts pour Ajax bouton load-more
+    // wp_enqueue_script('false-filters', get_template_directory_uri() . '/parts/faux-script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/faux-script.js'), true);
+    // wp_localize_script('false-filters', 'filters_js', array('ajax_url' => admin_url('admin-ajax.php')));
    
     
 }
@@ -98,7 +103,6 @@ function mota_galerie_request_by_category() {
     $format = isset($_POST['format']) ? $_POST['format'] : 'all';
     $date = isset($_POST['date']) ? $_POST['date'] : 'desc';
     $tax_query =  array('relation' => 'AND');
-    var_dump($category, $format, $tax_query);
 
     if ($category !== 'all') {
         $tax_query[] = array(
@@ -126,7 +130,6 @@ function mota_galerie_request_by_category() {
     );
 
     $query = new WP_Query($query_args);
-    var_dump($query->have_posts());
 
     $response = '';
 
@@ -147,47 +150,7 @@ add_action('wp_ajax_request_gallery_by_category', 'mota_galerie_request_by_categ
 add_action('wp_ajax_nopriv_request_gallery_by_category', 'mota_galerie_request_by_category');
 
 
-// select des formats
-// function mota_galerie_request_by_format() {
-//     $format = $_POST['format'];
 
-//     $query_args = array(
-//         'post_type' => 'photo',
-//         'posts_per_page' => 12,
-//         'orderby' => 'date',
-//         'order' => 'DESC',
-//         'paged' => $_POST['paged'],
-//     );
 
-//     if ($format !== 'all') {
-//         $query_args['tax_query'] = array(
-//             array(
-//                 'taxonomy' => 'format',
-//                 'field' => 'slug',
-//                 'terms' => $format,
-//             ),
-//         );
-//     }
-
-//     $query = new WP_Query($query_args);
-
-//     $response = '';
-
-//     if ($query->have_posts()) {
-//         while ($query->have_posts()) : $query->the_post();
-//             $response .= get_template_part('templates/post-boucle');
-//         endwhile;
-//     } else {
-//         $response = '';
-//     }
-
-//     echo $response;
-//     exit;
-// }
-
-// add_action('wp_ajax_request_gallery_by_format', 'mota_galerie_request_by_format');
-// add_action('wp_ajax_nopriv_request_gallery_by_format', 'mota_galerie_request_by_format');
-
-// select des dates
 
 

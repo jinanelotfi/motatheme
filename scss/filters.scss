@@ -21,5 +21,14 @@
         font-family: 'Poppins';
         text-transform: uppercase;
         font-size: 14px;
+
+        .option-filter {
+            color: green !important;
+            padding: 50px 0 !important;
+
+            &:hover {
+                background-color: red !important;
+            }
+        }
     }
 }
