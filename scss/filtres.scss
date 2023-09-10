@@ -1,0 +1,245 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .container-cate-form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 3rem;
+        gap: 2rem;
+
+        .dropdown.categoryy {
+            // max-width: 330px;
+            // margin: 50px auto;
+            width: 15rem;
+            flex-wrap: wrap;
+
+            &.active {      
+                display: block;
+                z-index: 10;
+                animation: fadeInDown .3s ease-in-out;
+            }
+
+            #category-filter {
+                display: flex;
+                height: 55px;
+                font-size: 14px;
+                border-radius: 10px;
+                align-items: center;
+                cursor: pointer;
+                justify-content: space-between;
+                /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+                width: 100%;
+                padding: 0 16px;
+
+                &::placeholder {
+                    color: var(--black);
+                    text-transform: uppercase;
+                    font-family: 'Poppins';
+                }        
+            }
+
+            .options-cate {
+                display: none;
+                position: absolute;
+                // width: 330px;
+                overflow-y: auto;
+                /* max-height: 295px; */
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 8px;
+                background: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                animation: fadeInDown .3s ease-in-out;
+                width: inherit;
+                font-family: 'Poppins';
+                font-size: 14px;
+
+
+                    .option-cate {
+                        display: flex;
+                        height: 55px;
+                        cursor: pointer;
+                        padding: 0 16px;
+                        border-radius: 8px;
+                        align-items: center;
+                        background: #fff;
+
+                        &:hover {
+                        background: var(--red);
+                        color: var(--white);
+                        }
+                    }
+
+                &.active {      
+                    display: block;
+                    z-index: 10;
+                    animation: fadeInDown .3s ease-in-out;
+                }
+            }
+        }
+
+        .dropdown.formatt {
+            // max-width: 330px;
+            // margin: 50px auto;
+            width: 15rem;
+            flex-wrap: wrap;
+
+            &.active {      
+                display: flex;
+                z-index: 10;
+                animation: fadeInDown .3s ease-in-out;
+            }
+
+            input {
+                display: flex;
+                height: 55px;
+                font-size: 14px;
+                border-radius: 10px;
+                align-items: center;
+                cursor: pointer;
+                justify-content: space-between;
+                /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+                width: 100%;
+                padding: 0 16px;
+
+                &::placeholder {
+                    color: var(--black);
+                    text-transform: uppercase;
+                    font-family: 'Poppins';
+                }        
+            }
+
+            .options-form {
+                display: none;
+                position: absolute;
+                // width: 330px;
+                overflow-y: auto;
+                /* max-height: 295px; */
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 8px;
+                background: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                animation: fadeInDown .3s ease-in-out;
+                width: inherit;
+                font-family: 'Poppins';
+                font-size: 14px;
+
+                    .option-form {
+                        display: flex;
+                        height: 55px;
+                        cursor: pointer;
+                        padding: 0 16px;
+                        border-radius: 8px;
+                        align-items: center;
+                        background: #fff;
+
+                        &:hover {
+                        background: var(--red);
+                        color: var(--white);
+                        }
+                    }
+
+                &.active {      
+                    display: block;
+                    z-index: 10;
+                    animation: fadeInDown .3s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .dropdown.datee {
+        // max-width: 330px;
+        // margin: 50px auto;
+        width: 15rem;
+        flex-wrap: wrap;
+        margin-right: 3rem;
+
+        &.active {      
+            display: flex;
+            z-index: 10;
+            animation: fadeInDown .3s ease-in-out;
+        }
+
+        input {
+            display: flex;
+            height: 55px;
+            font-size: 14px;
+            border-radius: 10px;
+            align-items: center;
+            cursor: pointer;
+            justify-content: space-between;
+            /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+            width: 100%;
+            padding: 0 16px;
+
+            &::placeholder {
+                color: var(--black);
+                text-transform: uppercase;
+                font-family: 'Poppins';
+            }        
+        }
+
+        .options-date {
+            display: none;
+            position: absolute;
+            // width: 330px;
+            overflow-y: auto;
+            /* max-height: 295px; */
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown .3s ease-in-out;
+            width: inherit;
+            font-family: 'Poppins';
+            font-size: 14px;
+
+                .option-date {
+                    display: flex;
+                    height: 55px;
+                    cursor: pointer;
+                    padding: 0 16px;
+                    border-radius: 8px;
+                    align-items: center;
+                    background: #fff;
+
+                    &:hover {
+                    background: var(--red);
+                    color: var(--white);
+                    }
+                }
+
+            &.active {      
+                display: block;
+                z-index: 10;
+                animation: fadeInDown .3s ease-in-out;
+            }
+        }
+    }
+}
+
+  
+  
+  
+  @keyframes fadeInDown  {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+  }
+  

@@ -1,3 +1,5 @@
+// import Lightbox from './main.js'; 
+
 let currentPage = 1;
 let category = 'all';
 let format = 'all';
@@ -69,6 +71,14 @@ function ajaxFun () {
         return response.text();
     }).then(function(html) {
         document.getElementById('ajax_return').innerHTML = html;
+
+        // Les modif commmencent ici 
+      //   const lightboxTriggers = document.querySelectorAll('.full-screen-icon');
+      // const images = Array.from(lightboxTriggers).map((trigger) =>
+      //   trigger.getAttribute('data-url')
+      // );
+      // Lightbox.updateImages(images); 
+
     }).catch(function(error) {
         console.error('There was a problem with the fetch operation: ', error);
     });

@@ -112,7 +112,6 @@ class Lightbox {
 
         refCatLight.appendChild(pRef)
         refCatLight.appendChild(pCat)
-        console.log(refCatLight)
         container.appendChild(refCatLight)
         
 
@@ -124,6 +123,14 @@ class Lightbox {
 
         image.src = url
     }
+
+
+    // Les modifications commencent ici 
+    // Mise à jour des images
+    // updateImages(images) {
+    //     this.images = images;
+    //   }
+      
 
 
     // Ferme la lightbox en appuyant sur le bouton Echap
@@ -206,7 +213,13 @@ class Lightbox {
 
 }
 
+// function updateLightboxImages(images) {
+//     Lightbox.updateImages(images);
+// }
+
 Lightbox.init();
+
+
 
 
 

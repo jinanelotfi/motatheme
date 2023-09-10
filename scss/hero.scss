@@ -12,6 +12,8 @@
         position: absolute;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        
 
         p {
             font-family: 'SpaceMono-Bold';
@@ -20,6 +22,8 @@
             -webkit-text-stroke: 0.5px white;
             text-transform: uppercase;
             font-style: italic;
+            width: 100%;
+            text-align: center;
         }
     }
     

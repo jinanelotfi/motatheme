@@ -11,10 +11,7 @@
             <div class="contact-image">
                 <img src="<?php echo get_template_directory_uri() . '/assets/images/Contact-header.png'; ?>" alt="contact texte">
             </div>
-            <div class="contact-box">
-                <?php echo do_shortcode('[contact-form-7 id="f029b0d" title="Contact form 1"]'); ?>
-            </div>
-            <!-- <form action="#" method="post" class="contact-box">
+            <form action="#" method="post" class="contact-box">
                 <div>
                     <label for="Nom">Nom</label>
                     <input type="text" name="Nom" id="" required="required">                    
@@ -32,7 +29,7 @@
                     <input type="text" name="Message" id="message-area">                    
                 </div>
                 <button type="submit" class="button">Envoyer</button>
-            </form> -->
+            </form>
         </div>
     </div>
 

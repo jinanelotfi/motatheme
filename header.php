@@ -7,8 +7,8 @@
     <?php wp_head() ?>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container-navigation">
+    <!-- <nav class="navbar"> -->
+        <nav class="container-navigation">
             <!-- <a class="navbar-brand" href="#">< bloginfo('name') ?></a>         -->            
             <?php
                 if(function_exists('the_custom_logo')) {
@@ -26,5 +26,5 @@
                     ])
                 ?>
             </div>
-        </div>
-    </nav>
+        </nav>
+    <!-- </nav> -->

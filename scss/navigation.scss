@@ -1,23 +1,30 @@
 .container-navigation {
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 4rem;
+    margin: 2rem 0 0 0;
 
     img {
-        width: 30%;
+        display: flex;
+        flex-basis: 25%;
+        width: 10rem;
+        height: auto;
+        object-fit: contain;
+        margin-left: 3rem;
+        
     }
 
     .main-navigation {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-basis: 70%;
+        justify-content: flex-end;
+        margin-right: 3rem;
 
         .navbar-nav {
             display: flex;
-            justify-content: space-between;
+            // justify-content: space-between;
             align-items: center;
-            gap: 4rem;
+            gap: 3rem;
             list-style: none;
 
             a {

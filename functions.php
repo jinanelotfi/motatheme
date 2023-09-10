@@ -3,16 +3,15 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 function theme_enqueue_styles() {
     wp_enqueue_style('motatheme-style', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), filemtime(get_stylesheet_directory() . '/dist/css/style.css'));
+    
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/parts/main.js', array(), filemtime(get_stylesheet_directory() . '/parts/main.js'), true);
     
     // Chargement des scripts pour Ajax bouton load-more
     wp_enqueue_script('load-more', get_template_directory_uri() . '/parts/script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/script.js'), true);
     wp_localize_script('load-more', 'load_js', array('ajax_url' => admin_url('admin-ajax.php')));
 
-    // Chargement du faux-script pour essai faux filtres 
-    // Chargement des scripts pour Ajax bouton load-more
-    // wp_enqueue_script('false-filters', get_template_directory_uri() . '/parts/faux-script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/faux-script.js'), true);
-    // wp_localize_script('false-filters', 'filters_js', array('ajax_url' => admin_url('admin-ajax.php')));
+    // Script kit icones
+    wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/2141edcbd6.js', array(), null, false);
    
     
 }
