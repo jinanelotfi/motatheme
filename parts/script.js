@@ -115,35 +115,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Gestion du menu déroulant des Filtres
 // Catégorie
-let optionMenu = document.querySelector(".dropdown.categoryy");
-let selectInput = document.getElementById("category-filter");
-let optionsCate = document.querySelector(".options-cate");
+const optionMenu = document.querySelector(".dropdown.categoryy");
+const selectInput = document.getElementById("category-filter");
+const optionsCate = document.querySelector(".options-cate");
+const chevronCate = document.getElementById("chevron-cate");
+
 // Format
 let optionMenuForm = document.querySelector(".dropdown.formatt");
 let selectInputForm = document.getElementById("format-filter");
 let optionsForm = document.querySelector(".options-form");
+const chevronForm = document.getElementById("chevron-form");
+
 // Date
 let optionMenuDate = document.querySelector(".dropdown.datee");
 let selectInputDate = document.getElementById("date-sort");
 let optionsDate = document.querySelector(".options-date");
+const chevronDate = document.getElementById("chevron-date");
 
 
 // Catégorie
-selectInput.addEventListener("click", () => {
+selectInput.addEventListener("click", toggleCategoryDropdown);
+chevronCate.addEventListener("click", toggleCategoryDropdown);
+
+function toggleCategoryDropdown() {
   optionMenu.classList.toggle("active");
+  chevronCate.classList.toggle("active-chevron"); 
   optionsCate.classList.toggle("active");
-});
+}
+
 // Format
-selectInputForm.addEventListener("click", () => {
+selectInputForm.addEventListener("click", toggleFormDropdown);
+chevronForm.addEventListener("click", toggleFormDropdown);
+
+function toggleFormDropdown() {
+  chevronForm.classList.toggle("active-chevron"); 
   optionMenuForm.classList.toggle("active");
   optionsForm.classList.toggle("active");
-});
+}
+
 // Date
-selectInputDate.addEventListener("click", () => {
+selectInputDate.addEventListener("click", toggleDateDropdown);
+chevronDate.addEventListener("click", toggleDateDropdown);
+
+function toggleDateDropdown() {
+  chevronDate.classList.toggle("active-chevron"); 
   optionMenuDate.classList.toggle("active");
   optionsDate.classList.toggle("active");
-});
-
+}
 
 // Catégorie
 optionsCate.querySelectorAll(".option-cate").forEach((option) => {
@@ -154,6 +172,7 @@ optionsCate.querySelectorAll(".option-cate").forEach((option) => {
         ajaxFun();
         optionMenu.classList.remove("active");
         optionsCate.classList.remove("active");
+        chevronCate.classList.remove("active-chevron"); 
     });
 });
 // Format
@@ -165,6 +184,7 @@ optionsForm.querySelectorAll(".option-form").forEach((option) => {
       ajaxFun();
       optionMenuForm.classList.remove("active");
       optionsForm.classList.remove("active");
+      chevronForm.classList.remove("active-chevron"); 
   });
 });
 // Date
@@ -176,6 +196,7 @@ optionsDate.querySelectorAll(".option-date").forEach((option) => {
       ajaxFun();
       optionMenuDate.classList.remove("active");
       optionsDate.classList.remove("active");
+      chevronDate.classList.remove("active-chevron"); 
   });
 });
 

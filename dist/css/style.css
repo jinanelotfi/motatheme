@@ -544,6 +544,8 @@ footer {
   height: 100vh;
   overflow: hidden;
   margin-bottom: 4rem; }
+  .hero-container .hero-image {
+    width: 100%; }
   .hero-container .hero-title {
     display: flex;
     position: absolute;
@@ -590,9 +592,21 @@ footer {
       width: 15rem;
       flex-wrap: wrap; }
       .wrapper .container-cate-form .dropdown.categoryy.active {
-        display: block;
+        display: flex;
         z-index: 10;
         animation: fadeInDown .3s ease-in-out; }
+      .wrapper .container-cate-form .dropdown.categoryy span {
+        display: flex;
+        position: relative; }
+        .wrapper .container-cate-form .dropdown.categoryy span #chevron-cate {
+          position: absolute;
+          width: auto;
+          height: 20px;
+          top: 15px;
+          right: 15px;
+          transition: 0.3s; }
+          .wrapper .container-cate-form .dropdown.categoryy span #chevron-cate.active-chevron {
+            transform: rotate(-180deg); }
       .wrapper .container-cate-form .dropdown.categoryy #category-filter {
         display: flex;
         height: 55px;
@@ -634,9 +648,10 @@ footer {
             background: var(--red);
             color: var(--white); }
         .wrapper .container-cate-form .dropdown.categoryy .options-cate.active {
-          display: block;
+          display: flex;
           z-index: 10;
-          animation: fadeInDown .3s ease-in-out; }
+          animation: fadeInDown .3s ease-in-out;
+          flex-direction: column; }
     .wrapper .container-cate-form .dropdown.formatt {
       width: 15rem;
       flex-wrap: wrap; }
@@ -644,7 +659,19 @@ footer {
         display: flex;
         z-index: 10;
         animation: fadeInDown .3s ease-in-out; }
-      .wrapper .container-cate-form .dropdown.formatt input {
+      .wrapper .container-cate-form .dropdown.formatt span {
+        display: flex;
+        position: relative; }
+        .wrapper .container-cate-form .dropdown.formatt span #chevron-form {
+          position: absolute;
+          width: auto;
+          height: 20px;
+          top: 15px;
+          right: 15px;
+          transition: 0.3s; }
+          .wrapper .container-cate-form .dropdown.formatt span #chevron-form.active-chevron {
+            transform: rotate(-180deg); }
+      .wrapper .container-cate-form .dropdown.formatt #format-filter {
         display: flex;
         height: 55px;
         font-size: 14px;
@@ -655,7 +682,7 @@ footer {
         /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
         width: 100%;
         padding: 0 16px; }
-        .wrapper .container-cate-form .dropdown.formatt input::placeholder {
+        .wrapper .container-cate-form .dropdown.formatt #format-filter::placeholder {
           color: var(--black);
           text-transform: uppercase;
           font-family: 'Poppins'; }
@@ -685,9 +712,10 @@ footer {
             background: var(--red);
             color: var(--white); }
         .wrapper .container-cate-form .dropdown.formatt .options-form.active {
-          display: block;
+          display: flex;
           z-index: 10;
-          animation: fadeInDown .3s ease-in-out; }
+          animation: fadeInDown .3s ease-in-out;
+          flex-direction: column; }
   .wrapper .dropdown.datee {
     width: 15rem;
     flex-wrap: wrap;
@@ -696,7 +724,19 @@ footer {
       display: flex;
       z-index: 10;
       animation: fadeInDown .3s ease-in-out; }
-    .wrapper .dropdown.datee input {
+    .wrapper .dropdown.datee span {
+      display: flex;
+      position: relative; }
+      .wrapper .dropdown.datee span #chevron-date {
+        position: absolute;
+        width: auto;
+        height: 20px;
+        top: 15px;
+        right: 15px;
+        transition: 0.3s; }
+        .wrapper .dropdown.datee span #chevron-date.active-chevron {
+          transform: rotate(-180deg); }
+    .wrapper .dropdown.datee #date-sort {
       display: flex;
       height: 55px;
       font-size: 14px;
@@ -707,7 +747,7 @@ footer {
       /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
       width: 100%;
       padding: 0 16px; }
-      .wrapper .dropdown.datee input::placeholder {
+      .wrapper .dropdown.datee #date-sort::placeholder {
         color: var(--black);
         text-transform: uppercase;
         font-family: 'Poppins'; }
@@ -737,9 +777,10 @@ footer {
           background: var(--red);
           color: var(--white); }
       .wrapper .dropdown.datee .options-date.active {
-        display: block;
+        display: flex;
         z-index: 10;
-        animation: fadeInDown .3s ease-in-out; }
+        animation: fadeInDown .3s ease-in-out;
+        flex-direction: column; }
 
 @keyframes fadeInDown {
   from {

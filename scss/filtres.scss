@@ -10,14 +10,35 @@
 
         .dropdown.categoryy {
             // max-width: 330px;
-            // margin: 50px auto;
+            
             width: 15rem;
             flex-wrap: wrap;
 
             &.active {      
-                display: block;
+                display: flex;
                 z-index: 10;
+                // margin: 50px auto;
                 animation: fadeInDown .3s ease-in-out;
+            }
+
+            span {
+                display: flex;
+                position: relative;
+
+                #chevron-cate {
+                    position: absolute;
+                    width: auto;
+                    height: 20px;
+                    top: 15px;
+                    right: 15px;
+                    transition: 0.3s;
+
+                    &.active-chevron {
+                        transform: rotate(-180deg);
+                    }
+                    
+                    
+                }
             }
 
             #category-filter {
@@ -72,9 +93,10 @@
                     }
 
                 &.active {      
-                    display: block;
+                    display: flex;
                     z-index: 10;
                     animation: fadeInDown .3s ease-in-out;
+                    flex-direction: column;
                 }
             }
         }
@@ -91,7 +113,26 @@
                 animation: fadeInDown .3s ease-in-out;
             }
 
-            input {
+            span {
+                display: flex;
+                position: relative;
+
+                #chevron-form {
+                    position: absolute;
+                    width: auto;
+                    height: 20px;
+                    top: 15px;
+                    right: 15px;
+                    transition: 0.3s;
+
+                    &.active-chevron {
+                        transform: rotate(-180deg);
+                    }                  
+                    
+                }
+            }
+
+            #format-filter {
                 display: flex;
                 height: 55px;
                 font-size: 14px;
@@ -142,9 +183,10 @@
                     }
 
                 &.active {      
-                    display: block;
+                    display: flex;
                     z-index: 10;
                     animation: fadeInDown .3s ease-in-out;
+                    flex-direction: column;
                 }
             }
         }
@@ -163,7 +205,26 @@
             animation: fadeInDown .3s ease-in-out;
         }
 
-        input {
+        span {
+            display: flex;
+            position: relative;
+
+            #chevron-date {
+                position: absolute;
+                width: auto;
+                height: 20px;
+                top: 15px;
+                right: 15px;
+                transition: 0.3s;
+
+                &.active-chevron {
+                    transform: rotate(-180deg);
+                }                  
+                
+            }
+        }
+
+        #date-sort {
             display: flex;
             height: 55px;
             font-size: 14px;
@@ -214,9 +275,10 @@
                 }
 
             &.active {      
-                display: block;
+                display: flex;
                 z-index: 10;
                 animation: fadeInDown .3s ease-in-out;
+                flex-direction: column;
             }
         }
     }

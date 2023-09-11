@@ -31,8 +31,11 @@
         <?php wp_reset_postdata() ?>
         <!-- bouton Chargez plus -->
         <?php get_template_part('templates/load-more'); ?>
+        <!-- < get_template_part('templates/lightbox-modale'); ?> -->
         
     </div>
+    <!-- <img class="img-img" src="< echo get_template_directory_uri() . '/assets/images/nathalie-4.jpeg'; ?>" alt=""> -->
+    <!-- < get_template_part('templates/test-cf7'); ?> -->
   
 
 

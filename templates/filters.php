@@ -3,10 +3,10 @@
 
         <!-- Filtre Catégories -->
         <div class="dropdown categoryy active">
-            <div class="container-icon">
+            <span class="container-icon">
                 <input type="text" id="category-filter" placeholder="Catégorie" readonly>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
+                <img src="<?php echo get_template_directory_uri() . '../assets/images/chevron-down.svg'; ?>" id="chevron-cate" alt="">
+            </span>
             <ul class="options-cate">
                 <?php
                 $categories = get_terms(array(
@@ -23,7 +23,10 @@
 
         <!-- Filtre Format -->
         <div class="dropdown formatt active">
-            <input type="text" id="format-filter" placeholder="Format" readonly>
+            <span class="container-icon">
+                <input type="text" id="format-filter" placeholder="Format" readonly>
+                <img src="<?php echo get_template_directory_uri() . '../assets/images/chevron-down.svg'; ?>" id="chevron-form" alt="">
+            </span>
             <ul class="options-form">
                 <?php
                 $formats = get_terms(array(
@@ -40,7 +43,10 @@
 
     <!-- Filtre Date -->
     <div class="dropdown datee active">
-        <input type="text" id="date-sort" placeholder="Trier par" readonly>
+        <span class="container-icon">
+            <input type="text" id="date-sort" placeholder="Trier par" readonly>
+            <img src="<?php echo get_template_directory_uri() . '../assets/images/chevron-down.svg'; ?>" id="chevron-date" alt="">
+        </span>
         <ul class="options-date">
             <li class="option-date" data-value="desc">Les plus récentes</li>
             <li class="option-date" data-value="asc">Les plus anciennes</li>
