@@ -13,26 +13,7 @@
             </div>
             <div class="contact-box">
                 <?php echo do_shortcode('[contact-form-7 id="f029b0d" title="Contact form 1"]'); ?>
-            </div>
-            <!-- <form action="#" method="post" class="contact-box">
-                <div>
-                    <label for="Nom">Nom</label>
-                    <input type="text" name="Nom" id="" required="required">                    
-                </div>
-                <div>
-                    <label for="E-mail">E-mail</label>
-                    <input type="email" name="E-mail" id="" required="required">                    
-                </div>
-                <div>
-                    <label for="Réf. photo">Réf. photo</label>
-                    <input type="text" name="Réf. photo" id="referenceField">                    
-                </div>
-                <div>
-                    <label for="Message">Message</label>
-                    <input type="text" name="Message" id="message-area">                    
-                </div>
-                <button type="submit" class="button">Envoyer</button>
-            </form> -->
+            </div>           
         </div>
     </div>
 

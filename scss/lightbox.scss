@@ -89,32 +89,6 @@
 .lightbox.fadeOut {
     opacity: 0;
 }
- 
-// .lightbox_prev,
-// .lightbox_next {
-//     color: var(--white);
-//     border: none;    
-//     width: 50px;    
-//     height: 100%;
-//     position: fixed;
-//     top: 50%;
-//     // right: 0;
-//     z-index: 11;
-//     margin-top: -14px;
-//     // text-indent: -3000px;
-
-// }
-// .lightbox_prev {
-//     background: url('../../assets/images/arrow-left.png');    
-//     background-repeat: no-repeat;
-//     right: auto;
-//     left: 20px;
-// }
-// .lightbox_next {    
-//     background: url('../../assets/images/arrow-right.png');     
-//     background-repeat: no-repeat;
-//     right: 20px;
-// }
 
 .lightbox_close {
     font-size: 2rem;
@@ -177,4 +151,46 @@
     height: 38px;
     opacity: .5;
     background: url(../../assets/images/loader.svg) center center no-repeat;
+}
+
+@media screen and (max-width: 320px) {
+    .lightbox {
+        display: flex;
+        flex-direction: column;
+
+        .lightbox_container {
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 4rem;
+            min-height: 100vh;
+            flex-direction: column-reverse;
+            margin-top: 50px;
+        }
+
+        .arrow-lightbox {
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            padding: 0;
+            margin-left: 2rem;
+            margin-top: 8rem;
+            gap: 8.5rem;
+
+            .lightbox_prev,
+            .lightbox_next {
+                flex-direction: column;
+                gap: 0;
+
+                // img {
+                //     height: 30px;
+                // }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }

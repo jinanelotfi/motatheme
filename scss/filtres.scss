@@ -304,4 +304,35 @@
         opacity: 0;
       }
   }
+
+//   Responsive 
+@media screen and (max-width: 320px) {
+    .wrapper {
+        flex-direction: column;
+
+        .container-cate-form {
+            margin: 0;
+            justify-content: center;
+
+            .dropdown.categoryy,
+            .dropdown.formatt {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .dropdown.datee {
+            width: 100%;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        
+    }
+
+    
+
+    
+}
+
   

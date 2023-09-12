@@ -79,6 +79,8 @@ function ajaxFun () {
       // );
       // Lightbox.updateImages(images); 
 
+      Lightbox.init();
+
     }).catch(function(error) {
         console.error('There was a problem with the fetch operation: ', error);
     });

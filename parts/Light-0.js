@@ -1,62 +1,3 @@
-// Get the modal
-let modal = document.getElementById("myModal");
-let btn = document.getElementById("myBtn");
-let span = document.querySelector(".close");
-let contactMenu = document.querySelector(".contact-menu");
-
-// Lorsqu'on clique sur le bouton, on ouvre la modale
-contactMenu.onclick = function() {
-    modal.style.display = "block";
-}
-
-if (btn != null) {
-btn.onclick = function() {
-    modal.style.display = "block";
-}}
-
-// Lorsqu'on clique sur la croix, on ferme la modale
-span.onclick = function() {
-    modal.style.display = "none";
-    resetReferenceField();
-}
-
-// Lorsqu'on clique n'importe où sur le background, la modale se ferme
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        resetReferenceField();
-    }
-}
-
-// Remplir le champs "Réf. photo" automatiquement dans le single
-let prefillButtons = document.querySelectorAll(".prefill-reference");
-
-function prefillReferenceField(referenceValue) {
-    let referenceField = document.getElementById("referenceField");
-    referenceField.value = referenceValue;
-}
-
-prefillButtons.forEach(function(button) {
-    button.addEventListener("click", function() {        
-        let referenceValue = this.getAttribute("data-reference");
-        // On vérifie si le bouton a la classe .contact-menu
-        if (!button.classList.contains("contact-menu")) {
-            prefillReferenceField(referenceValue);
-            modal.style.display = "block";
-        }
-    });
-});
-
-// Fonction pour réinitialiser le champ Réf. photo
-function resetReferenceField() {
-    let referenceField = document.getElementById("referenceField");
-    referenceField.value = "";
-}
-
-
-
-
-
 // Lightbox
 // @property {HTMLElement} element
 // @property {string[]} images Chemins des images de la lightbox
@@ -66,31 +7,37 @@ class Lightbox {
     static init() {
         const lightboxTriggers = document.querySelectorAll('.full-screen-icon');
         const images = Array.from(lightboxTriggers).map(trigger => trigger.getAttribute('data-url'));
+        // Les modif commencent ici
+        const refs = Array.from(document.querySelectorAll('.reference-lightbox')).map(trigger => trigger.getAttribute('data-url'));
+        console.log(refs);
+        const catee = Array.from(document.querySelectorAll('.categorie-lightbox')).map(trigger => trigger.getAttribute('data-url'));
+        console.log(catee);
 
 
-        lightboxTriggers.forEach((trigger, index) => {
+
+        lightboxTriggers.forEach(trigger => {
             trigger.addEventListener('click', e => {
+                console.log(e.target.closest('.reference-lightbox'));
                 e.preventDefault();
-                const imageUrl = trigger.getAttribute('data-url');            
-                const references = Array.from(document.querySelectorAll('.reference-lightbox')).map(ref => ref.textContent);
-                const categories = Array.from(document.querySelectorAll('.categorie-lightbox')).map(cat => cat.textContent);  
-
-                new Lightbox(imageUrl, images, references, categories);
+                const imageUrl = trigger.getAttribute('data-url');              
+                
+                new Lightbox(imageUrl, images, ref, catee );
             });
         });
-    }
-
         
-    
+    }
 
     // @param {string} url URL de l'image
     // @param {string[]} images Chemins des images de la lightbox
 
-    constructor(url, images, references, categories) {
+    constructor(url, images, ref, catee) {
         this.element = this.buildDom(url);
         this.images = images;
-        this.references = references;
-        this.categories = categories;
+// Les modifs commencent ici
+        this.ref = ref;
+        this.catee = catee;
+
+
         this.currentIndex = images.indexOf(url);
         this.loadImage(url);
         document.body.appendChild(this.element);
@@ -100,7 +47,7 @@ class Lightbox {
 
     // @param {string} url URL de l'image
 
-    loadImage (url) {
+    loadImage (url, ref, catee) {
         this.url = null
         const image = new Image()
         const container = this.element.querySelector('.lightbox_container')
@@ -109,27 +56,28 @@ class Lightbox {
         container.innerHTML = ''
         container.appendChild(loader)
 
-        const currentIndex = this.images.indexOf(url);
-        const reference = this.references[currentIndex];
-        const categorie = this.categories[currentIndex];
-
+        // const categorie = document.getElementById('categorie-lightbox').innerHTML; 
+        // const reference = document.getElementById('reference-lightbox').innerHTML;
+        
         const refCatLight = document.createElement('div')
         refCatLight.classList.add('ref-cate-light')
         const pRef = document.createElement('p')
-        pRef.innerHTML = reference
+        pRef.innerHTML = ref
+
         const pCat = document.createElement('p')
-        pCat.innerHTML = categorie
+        pCat.innerHTML = catee
 
         refCatLight.appendChild(pRef)
         refCatLight.appendChild(pCat)
         container.appendChild(refCatLight)
-
+        
 
         image.onload = () => {
             container.removeChild(loader)
             container.appendChild(image)
             this.url = url
         }
+
         image.src = url
     }
 
@@ -161,15 +109,25 @@ class Lightbox {
     // @param {MouseEvent/KeyboardEvent} e
     next (e) {
         e.preventDefault();
+        // let i = this.images.findIndex(image => image === this.url)
+        // if (i === this.images.length - 1) {
+        //     i = -1
+        // }
+        // this.loadImage(this.images[i + 1])
         this.currentIndex = (this.currentIndex + 1) % this.images.length; 
-        this.loadImage(this.images[this.currentIndex]);
+        this.loadImage(this.images[this.currentIndex], this.ref[this.currentIndex], this.catee[this.currentIndex]);
 
     } 
     
     // @param {MouseEvent/KeyboardEvent} e
     prev (e) {
         e.preventDefault();
-        this.currentIndex = (this.currentIndex + 1) % this.images.length; 
+        // let i = this.images.findIndex(image => image === this.url)
+        // if (i === 0) {
+        //     i = this.images.length
+        // }
+        // this.loadImage(this.images[i - 1])
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
         this.loadImage(this.images[this.currentIndex]);
     } 
 
@@ -206,41 +164,3 @@ class Lightbox {
 
 
 Lightbox.init();
-
-
-// Menu burger
-// Réglages menu hamburger
-// const hamburgerButton = document.querySelector(".nav-toggler")
-// const navigation = document.querySelector(".main-navigation")
-
-// hamburgerButton.addEventListener("click", toggleNav)
-
-// function toggleNav() {
-//   hamburgerButton.classList.toggle("active")
-//   navigation.classList.toggle("active")
-// }
-
-// Get the modal
-let menuStandard = document.querySelector("myModal");
-// let btn = document.getElementById("myBtn");
-// let span = document.querySelector(".close");
-let menuBurger = document.querySelector(".toggler-container");
-
-// Lorsqu'on clique sur le bouton, on ouvre la modale
-contactMenu.onclick = function() {
-    modal.style.display = "block";
-}
-
-if (btn != null) {
-btn.onclick = function() {
-    modal.style.display = "block";
-}}
-
-// Lorsqu'on clique sur la croix, on ferme la modale
-span.onclick = function() {
-    modal.style.display = "none";
-    resetReferenceField();
-}
-
-
-

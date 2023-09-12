@@ -7,9 +7,7 @@
     <?php wp_head() ?>
 </head>
 <body>
-    <!-- <nav class="navbar"> -->
-        <nav class="container-navigation">
-            <!-- <a class="navbar-brand" href="#">< bloginfo('name') ?></a>         -->            
+        <nav class="container-navigation">     
             <?php
                 if(function_exists('the_custom_logo')) {
                     $custom_logo_id = get_theme_mod('custom_logo');
@@ -25,6 +23,36 @@
                         'menu_class' => 'navbar-nav',
                     ])
                 ?>
+            </div>   
+            <div class="toggler-container">
+                <button class="nav-toggler" aria-controls="burger-menu" aria-expanded="false">
+                    <span class="line l1"></span>
+                    <span class="line l2"></span>
+                    <span class="line l3"></span>
+                </button>
             </div>
-        </nav>
-    <!-- </nav> -->
+    </nav>
+
+    <!-- Menu burger -->
+
+
+    <!-- <div class="container-burger"> -->
+        <!-- <
+            if(function_exists('the_custom_logo')) {
+                $custom_logo_id = get_theme_mod('custom_logo');
+                $logo = wp_get_attachment_image_src($custom_logo_id, 'large');
+            }
+        ?> -->
+        <!-- <img class="logo-site" src="< echo $logo[0] ?>" alt="logo">
+        <div class="main-navigation">            
+            < 
+                wp_nav_menu([
+                    'theme_location' => 'header',
+                    'container' => false,
+                    'menu_class' => 'navbar-nav',
+                ])
+            ?>
+        </div>   
+
+    </div> -->
+        

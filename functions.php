@@ -10,8 +10,6 @@ function theme_enqueue_styles() {
     wp_enqueue_script('load-more', get_template_directory_uri() . '/parts/script.js', array('jquery'), filemtime(get_stylesheet_directory() . '/parts/script.js'), true);
     wp_localize_script('load-more', 'load_js', array('ajax_url' => admin_url('admin-ajax.php')));
 
-    // Script kit icones
-    wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/2141edcbd6.js', array(), null, false);
    
     
 }
