@@ -3,12 +3,19 @@ let modal = document.getElementById("myModal");
 let btn = document.getElementById("myBtn");
 let span = document.querySelector(".close");
 let contactMenu = document.querySelector(".contact-menu");
+let contactMenuBurger = document.querySelector(".contact-menu-burger");
 
-// Lorsqu'on clique sur le bouton, on ouvre la modale
+// Lorsqu'on clique sur le lien Contact, on ouvre la modale
 contactMenu.onclick = function() {
     modal.style.display = "block";
 }
 
+// Lorsqu'on clique sur le lien Contact du menu burger, on ouvre la modale
+contactMenuBurger.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Lorsqu'on clique sur le bouton Contact, on ouvre la modale
 if (btn != null) {
 btn.onclick = function() {
     modal.style.display = "block";
@@ -185,12 +192,12 @@ class Lightbox {
             </div>
             <div class="arrow-lightbox">
                 <div class="lightbox_prev"> 
-                    <img src="http://localhost/Mota-photo/wp-content/themes/motatheme/assets/images/arrow-left-white.png" alt="">       
+                    <img src="./wp-content/themes/motatheme/assets/images/arrow-left-white.png" alt="">       
                     <p>Précédent</p>
                 </div>
                 <div class="lightbox_next">
-                    <img src="http://localhost/Mota-photo/wp-content/themes/motatheme/assets/images/arrow-right-white.png" alt="">
-                    <p>suivant</p>
+                    <img src="./wp-content/themes/motatheme/assets/images/arrow-right-white.png" alt="">
+                    <p>Suivant</p>
                 </div>
             </div>
             <div class="lightbox_container">                      
@@ -208,39 +215,15 @@ class Lightbox {
 Lightbox.init();
 
 
-// Menu burger
 // Réglages menu hamburger
-// const hamburgerButton = document.querySelector(".nav-toggler")
-// const navigation = document.querySelector(".main-navigation")
+const hamburgerButton = document.querySelector(".nav-toggler")
+const navigation = document.querySelector(".nav-burger")
 
-// hamburgerButton.addEventListener("click", toggleNav)
+hamburgerButton.addEventListener("click", toggleNav)
 
-// function toggleNav() {
-//   hamburgerButton.classList.toggle("active")
-//   navigation.classList.toggle("active")
-// }
-
-// Get the modal
-let menuStandard = document.querySelector("myModal");
-// let btn = document.getElementById("myBtn");
-// let span = document.querySelector(".close");
-let menuBurger = document.querySelector(".toggler-container");
-
-// Lorsqu'on clique sur le bouton, on ouvre la modale
-contactMenu.onclick = function() {
-    modal.style.display = "block";
+function toggleNav() {
+  hamburgerButton.classList.toggle("active")
+  navigation.classList.toggle("active")
 }
-
-if (btn != null) {
-btn.onclick = function() {
-    modal.style.display = "block";
-}}
-
-// Lorsqu'on clique sur la croix, on ferme la modale
-span.onclick = function() {
-    modal.style.display = "none";
-    resetReferenceField();
-}
-
 
 

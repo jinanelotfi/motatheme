@@ -73,3 +73,36 @@
         cursor: pointer;
     }
 }
+
+// Responsive
+@media screen and (max-width: 480px) {
+    .related-photos-block {
+        margin: 2rem 3rem;
+
+        h2 {
+            font-size: 20px;
+        }
+
+        .similar-container {
+            flex-direction: column;
+            margin: 3rem auto auto 0;
+
+            .gallery-boucle {
+                height: 17rem;
+
+                .sim-image {
+                    height: 17rem;
+                }
+            }            
+        }        
+    }
+
+    .single-photo {
+
+        .button {
+            margin: 0 3rem;
+            width: auto;
+            font-size: 14px;
+        }
+    }
+}

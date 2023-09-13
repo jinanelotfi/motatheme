@@ -18,6 +18,11 @@
         padding-right: 9rem;
         padding-bottom: 2rem;
         border-bottom: 1px solid black;
+        text-transform: uppercase;
+
+        h1 {
+            font-style: italic;
+        }
 
         a {
             text-decoration: none;
@@ -106,6 +111,10 @@
     align-items: center;
     flex-basis: 50%;
     justify-content: space-between;
+
+    p {
+        font-family: 'Poppins';
+    }
 }
 
 
@@ -141,4 +150,44 @@
 
 .next-link:hover .nav-thumbnail {
     display: inline-block;
+}
+
+
+// Responsive
+@media screen and (max-width: 480px) {
+    .single-photo {
+
+        .photo-details {
+            flex-direction: column-reverse;
+            margin: 2rem 3rem;
+
+            .info-block {
+                padding: 0;
+                border: none;
+            }
+        }
+
+        .interaction-block {
+            margin: 0;
+            justify-content: center;
+            border-top: 1px solid black;
+            padding: 6rem 0;
+
+            .modale-single {
+                flex-direction: column;
+                flex-basis: 100%;
+                padding: 0 3rem;
+                align-items: flex-start;
+
+                #myBtn {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    }
 }

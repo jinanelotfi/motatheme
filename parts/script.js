@@ -1,5 +1,3 @@
-// import Lightbox from './main.js'; 
-
 let currentPage = 1;
 let category = 'all';
 let format = 'all';
@@ -71,13 +69,7 @@ function ajaxFun () {
         return response.text();
     }).then(function(html) {
         document.getElementById('ajax_return').innerHTML = html;
-
-        // Les modif commmencent ici 
-      //   const lightboxTriggers = document.querySelectorAll('.full-screen-icon');
-      // const images = Array.from(lightboxTriggers).map((trigger) =>
-      //   trigger.getAttribute('data-url')
-      // );
-      // Lightbox.updateImages(images); 
+    
 
       Lightbox.init();
 
@@ -92,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('category-filter').addEventListener('change', function() {
       category = this.value;
       resetPage();
-      ajaxFun();
+      ajaxFun();     
 
   });
 });
@@ -123,15 +115,15 @@ const optionsCate = document.querySelector(".options-cate");
 const chevronCate = document.getElementById("chevron-cate");
 
 // Format
-let optionMenuForm = document.querySelector(".dropdown.formatt");
-let selectInputForm = document.getElementById("format-filter");
-let optionsForm = document.querySelector(".options-form");
+const optionMenuForm = document.querySelector(".dropdown.formatt");
+const selectInputForm = document.getElementById("format-filter");
+const optionsForm = document.querySelector(".options-form");
 const chevronForm = document.getElementById("chevron-form");
 
 // Date
-let optionMenuDate = document.querySelector(".dropdown.datee");
-let selectInputDate = document.getElementById("date-sort");
-let optionsDate = document.querySelector(".options-date");
+const optionMenuDate = document.querySelector(".dropdown.datee");
+const selectInputDate = document.getElementById("date-sort");
+const optionsDate = document.querySelector(".options-date");
 const chevronDate = document.getElementById("chevron-date");
 
 
@@ -143,6 +135,7 @@ function toggleCategoryDropdown() {
   optionMenu.classList.toggle("active");
   chevronCate.classList.toggle("active-chevron"); 
   optionsCate.classList.toggle("active");
+  
 }
 
 // Format
@@ -177,6 +170,7 @@ optionsCate.querySelectorAll(".option-cate").forEach((option) => {
         chevronCate.classList.remove("active-chevron"); 
     });
 });
+
 // Format
 optionsForm.querySelectorAll(".option-form").forEach((option) => {
   option.addEventListener("click", () => {
@@ -202,3 +196,7 @@ optionsDate.querySelectorAll(".option-date").forEach((option) => {
   });
 });
 
+
+// optionsCate.querySelectorAll(".options-cate.active").forEach((option) => {
+//   option.style.marginTop = "64px";
+// });

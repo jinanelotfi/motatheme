@@ -11,6 +11,8 @@
 @import "overlay";
 @import "hero";
 @import "filtres";
+@import "nav-burger";
+@import "page-content";
 
 
 
@@ -22,7 +24,7 @@
 body {
     font-family: 'SpaceMono', sans-serif;
     color: var(--black);
-    font-size: 1rem;
+    font-size: 14px;
     background-color: var(--white);
     margin: 0;
     // max-width: 1440px;
@@ -32,7 +34,7 @@ body {
 }
 
 main {
-    flex: 1;
+    flex-grow: 1;
 }
 
 h1 {

@@ -1,6 +1,8 @@
 .wrapper {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
 
     .container-cate-form {
         display: flex;
@@ -9,15 +11,12 @@
         gap: 2rem;
 
         .dropdown.categoryy {
-            // max-width: 330px;
-            
-            width: 15rem;
+            width: 250px;
             flex-wrap: wrap;
 
             &.active {      
                 display: flex;
                 z-index: 10;
-                // margin: 50px auto;
                 animation: fadeInDown .3s ease-in-out;
             }
 
@@ -35,9 +34,7 @@
 
                     &.active-chevron {
                         transform: rotate(-180deg);
-                    }
-                    
-                    
+                    }                   
                 }
             }
 
@@ -49,8 +46,7 @@
                 align-items: center;
                 cursor: pointer;
                 justify-content: space-between;
-                /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
-                width: 100%;
+                width: 250px;
                 padding: 0 16px;
 
                 &::placeholder {
@@ -63,11 +59,10 @@
             .options-cate {
                 display: none;
                 position: absolute;
-                // width: 330px;
                 overflow-y: auto;
-                /* max-height: 295px; */
                 padding: 10px;
                 margin-top: 10px;
+                // margin-top: 64px;
                 border-radius: 8px;
                 background: #fff;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -102,14 +97,12 @@
         }
 
         .dropdown.formatt {
-            // max-width: 330px;
-            // margin: 50px auto;
-            width: 15rem;
+            width: 250px;
             flex-wrap: wrap;
 
             &.active {      
                 display: flex;
-                z-index: 10;
+                z-index: 5;
                 animation: fadeInDown .3s ease-in-out;
             }
 
@@ -140,8 +133,7 @@
                 align-items: center;
                 cursor: pointer;
                 justify-content: space-between;
-                /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
-                width: 100%;
+                width: 250px;
                 padding: 0 16px;
 
                 &::placeholder {
@@ -154,9 +146,7 @@
             .options-form {
                 display: none;
                 position: absolute;
-                // width: 330px;
                 overflow-y: auto;
-                /* max-height: 295px; */
                 padding: 10px;
                 margin-top: 10px;
                 border-radius: 8px;
@@ -193,15 +183,14 @@
     }
 
     .dropdown.datee {
-        // max-width: 330px;
-        // margin: 50px auto;
-        width: 15rem;
+        width: 250px;
         flex-wrap: wrap;
         margin-right: 3rem;
+        margin-left: 3rem;
 
         &.active {      
             display: flex;
-            z-index: 10;
+            z-index: 1;
             animation: fadeInDown .3s ease-in-out;
         }
 
@@ -219,8 +208,7 @@
 
                 &.active-chevron {
                     transform: rotate(-180deg);
-                }                  
-                
+                }                                  
             }
         }
 
@@ -232,8 +220,7 @@
             align-items: center;
             cursor: pointer;
             justify-content: space-between;
-            /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
-            width: 100%;
+            width: 250px;
             padding: 0 16px;
 
             &::placeholder {
@@ -246,9 +233,7 @@
         .options-date {
             display: none;
             position: absolute;
-            // width: 330px;
             overflow-y: auto;
-            /* max-height: 295px; */
             padding: 10px;
             margin-top: 10px;
             border-radius: 8px;
@@ -283,10 +268,7 @@
         }
     }
 }
-
-  
-  
-  
+ 
   @keyframes fadeInDown  {
     from {
       opacity: 0;
@@ -306,7 +288,7 @@
   }
 
 //   Responsive 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
     .wrapper {
         flex-direction: column;
 
@@ -316,23 +298,15 @@
 
             .dropdown.categoryy,
             .dropdown.formatt {
-                width: 100%;
                 justify-content: center;
             }
         }
 
         .dropdown.datee {
-            width: 100%;
             justify-content: center;
-            margin-top: 2rem;
-        }
-
-        
-    }
-
-    
-
-    
+            margin: 0 auto;
+        }        
+    }    
 }
 
   

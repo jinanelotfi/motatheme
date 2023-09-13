@@ -1,0 +1,105 @@
+// Positionner le menu burger
+.toggler-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    // padding-left: 40%;
+    background-color: var(--white);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    z-index: 1000;
+    position: inherit;
+
+    .nav-toggler {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5%;
+        height: 100%;
+        background-color: transparent;
+        margin-right: 3rem;
+        border: none;
+    
+        .line {
+            position: absolute;
+            display: block;
+            width: 2rem;
+            height: 1px;
+            background-color: black;
+            transition: transform 0.3s ease-out,
+            opacity 0.1s ease-out;
+        }
+
+        .l1 {
+            transform: translateY(-10px);
+        }
+
+        .l3 {
+            transform: translateY(10px);
+        }
+
+        &.active  {
+            .l1 {
+            transform: translateY(0px) rotate(135deg);
+            }
+
+            .l2 {
+            opacity: 0;
+            }
+
+            .l3 {
+            transform: translateY(0px) rotate(-135deg);
+            }
+        }
+    }
+
+    img {    
+        display: block;
+        width: 159px;
+        margin-left: 29px;
+    }
+}
+
+// navigation des liens
+.nav-burger {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+    background-color: var(--red);
+    overflow: hidden;
+    margin-top: 4.5rem;
+
+    &.active {
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 100;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            text-align: center;
+            padding-top: 1rem;
+
+            a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 30px;
+            text-transform: uppercase;
+            }
+        }
+
+        
+    }
+    
+}

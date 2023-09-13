@@ -7,6 +7,10 @@
                 'menu_class' => 'footer-class',
             ])
         ?>
+        <div class="footer-p">
+            <p>Tous droits réservés</p>
+        </div>
+        
     </footer>
     <?php wp_footer() ?>
 </body>

@@ -129,8 +129,7 @@
     }
 
     img {
-        max-height: 100vh;
-        height: auto;
+        height: 100%;
         animation: lightboxIn .5s;
         width: 50%;
         object-fit: contain;
@@ -153,44 +152,68 @@
     background: url(../../assets/images/loader.svg) center center no-repeat;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
     .lightbox {
         display: flex;
         flex-direction: column;
 
         .lightbox_container {
             justify-content: center;
-            align-items: flex-start;
-            margin-left: 4rem;
-            min-height: 100vh;
+            align-items: center;
+            // margin-left: 4rem;
+            // min-height: 100vh;
             flex-direction: column-reverse;
-            margin-top: 50px;
+            margin-top: 100px;
+            height: 100%;
+
+            .ref-cate-light {
+                width: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
 
         .arrow-lightbox {
-            justify-content: flex-start;
-            align-items: center;
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            padding: 0;
-            margin-left: 2rem;
-            margin-top: 8rem;
-            gap: 8.5rem;
+            height: auto;        
+            padding: 0 3rem;
+            margin-top: 43rem;
+            padding-bottom: 5rem;
 
             .lightbox_prev,
             .lightbox_next {
                 flex-direction: column;
                 gap: 0;
 
-                // img {
-                //     height: 30px;
-                // }
+                img {
+                    height: 30px;
+                }
 
                 p {
                     font-size: 14px;
                 }
             }
+
+            .lightbox_prev {
+                align-items: flex-start;
+            }
+
+            .lightbox_next {
+                align-items: flex-end;
+            }
         }
     }
+}
+
+@media screen and (max-width: 320px) {
+    .lightbox {
+
+        .arrow-lightbox {
+            margin-top: 38rem;
+        }
+
+    }
+
 }

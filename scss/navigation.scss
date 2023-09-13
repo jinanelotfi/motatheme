@@ -1,8 +1,12 @@
+.container-burger {
+    display: none;
+}
+
 .container-navigation {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin: 2rem 0 0 0;
+    margin: 2rem 0;
 
     img {
         display: flex;
@@ -37,101 +41,13 @@
 }
 
 // Menu burger 
-// Positionner le menu burger
 
-// 
-    .toggler-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background-color: #FFD5A2;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        z-index: 9999;
-        position: inherit;
-
-        &.active {
-
-        }
-    
-        .nav-toggler {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 5%;
-            height: 100%;
-            background-color: transparent;
-            margin-right: 3rem;
-            border: none;
-        
-            .line {
-                position: absolute;
-                display: block;
-                width: 2rem;
-                height: 1px;
-                background-color: black;
-                transition: transform 0.3s ease-out,
-                opacity 0.1s ease-out;
-            }
-    
-            .l1 {
-                transform: translateY(-10px);
-            }
-    
-            .l3 {
-                transform: translateY(10px);
-            }
-    
-            &.active  {
-                .l1 {
-                transform: translateY(0px) rotate(135deg);
-                }
-    
-                .l2 {
-                opacity: 0;
-                }
-    
-                .l3 {
-                transform: translateY(0px) rotate(-135deg);
-                }
-            }
-        }
-    
+@media screen and (max-width: 480px) {
+    .container-burger {
+        display: block;
     }
 
-//     // navigation des liens
-//     .main-navigation {
-//         position: absolute;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         width: 100%;
-//         height: 100vh;
-//         flex-direction: column;
-//         transform: translateY(-100%);
-//         opacity: 0;
-//         transition: opacity 0.8s ease-out;
-//         background-color: #FFF5E9;
-//         overflow: hidden;
-//         margin-top: 2rem;
-
-//         &.active {
-//             transform: translateY(0);
-//             opacity: 1;
-//         }
-
-//         a {
-//             font-size: 40px;
-//             text-decoration: none;
-//             color: black;
-//             display: block;
-//             margin: 1rem;
-
-//             &:hover {
-//                 text-shadow: #EB5A35 0px 0 10px;
-//             }
-//         }
-//     }
-// 
-
+    .container-navigation {
+        display: none;
+    }
+}

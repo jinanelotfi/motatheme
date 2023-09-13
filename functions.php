@@ -22,6 +22,7 @@ function motatheme_supports() {
     add_theme_support('menus');
     register_nav_menu('header', 'En tête du menu');
     register_nav_menu('footer', 'Pied de page');
+    register_nav_menu('toggle', 'Menu burger');
     add_theme_support('custom-logo');
 }
 
