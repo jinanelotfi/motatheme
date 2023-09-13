@@ -47,6 +47,8 @@ function resetPage() {
 };
 
 
+
+
 function ajaxFun () {
     currentPage = 1;
 
@@ -73,18 +75,42 @@ function ajaxFun () {
 
       Lightbox.init();
 
+      // Les modif commencent ici   
+      
+      const optionsCateActive = document.querySelector(".options-cate");
+      const optionsFormActive = document.querySelector(".options-form");
+      const optionsDateActive = document.querySelector(".options-date");
+      
+      // On ajoute la margin-top à .options-cate
+      if (optionsCateActive && category !== 'all') {
+          optionsCateActive.style.marginTop = "64px";
+      };
+
+      //  // On ajoute la margin-top à .options-form       
+       if (optionsFormActive && format !== 'all') {
+           optionsFormActive.style.marginTop = "64px";
+       };
+
+      //  // On ajoute la margin-top à .options-date       
+       if (optionsDateActive && date !== 'desc') {
+           optionsDateActive.style.marginTop = "64px";
+       };
+
     }).catch(function(error) {
         console.error('There was a problem with the fetch operation: ', error);
     });
 
   };
 
+
+
+
   // Select des catégories
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('category-filter').addEventListener('change', function() {
       category = this.value;
       resetPage();
-      ajaxFun();     
+      ajaxFun(); 
 
   });
 });
@@ -195,8 +221,3 @@ optionsDate.querySelectorAll(".option-date").forEach((option) => {
       chevronDate.classList.remove("active-chevron"); 
   });
 });
-
-
-// optionsCate.querySelectorAll(".options-cate.active").forEach((option) => {
-//   option.style.marginTop = "64px";
-// });

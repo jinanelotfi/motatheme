@@ -857,7 +857,7 @@ footer {
             color: var(--white); }
         .wrapper .container-cate-form .dropdown.formatt .options-form.active {
           display: flex;
-          z-index: 10;
+          z-index: 5;
           animation: fadeInDown .3s ease-in-out;
           flex-direction: column; }
   .wrapper .dropdown.datee {
@@ -921,7 +921,7 @@ footer {
           color: var(--white); }
       .wrapper .dropdown.datee .options-date.active {
         display: flex;
-        z-index: 10;
+        z-index: 1;
         animation: fadeInDown .3s ease-in-out;
         flex-direction: column; }
 
@@ -1038,7 +1038,7 @@ body {
   min-height: 100vh; }
 
 main {
-  flex-grow: 1; }
+  flex: 1; }
 
 h1 {
   font-size: 2rem; }

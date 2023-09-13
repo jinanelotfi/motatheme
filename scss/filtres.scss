@@ -174,7 +174,7 @@
 
                 &.active {      
                     display: flex;
-                    z-index: 10;
+                    z-index: 5;
                     animation: fadeInDown .3s ease-in-out;
                     flex-direction: column;
                 }
@@ -261,7 +261,7 @@
 
             &.active {      
                 display: flex;
-                z-index: 10;
+                z-index: 1;
                 animation: fadeInDown .3s ease-in-out;
                 flex-direction: column;
             }
