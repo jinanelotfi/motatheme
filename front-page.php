@@ -14,6 +14,8 @@
 
         <!-- Section Hero -->
         <?php get_template_part('templates/hero'); ?>
+        <!-- Fin Section Hero -->
+
         <!-- Section Filtres -->                
         <?php get_template_part('templates/filters'); ?>        
         <!-- Fin section Filtres -->
@@ -29,15 +31,11 @@
             <h1>Pas d'article</h1>    
         <?php endif; ?>
         <?php wp_reset_postdata() ?>
+
         <!-- bouton Chargez plus -->
         <?php get_template_part('templates/load-more'); ?>
-        <!-- < get_template_part('templates/lightbox-modale'); ?> -->
         
     </div>
-    <!-- <img class="img-img" src="< echo get_template_directory_uri() . '/assets/images/nathalie-4.jpeg'; ?>" alt=""> -->
-    <!-- < get_template_part('templates/test-cf7'); ?> -->
-  
-
 
 </main>
 <?php get_footer(); ?>

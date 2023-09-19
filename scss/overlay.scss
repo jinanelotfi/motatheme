@@ -1,6 +1,5 @@
 .photo-icons {
     position: absolute;
-    // transform: none;
     display: none;
     transition: opacity 0.3s ease;
     width: 100%;
@@ -48,6 +47,7 @@
             p {
                 margin: 0 10px;
                 color: var(--white);
+                text-transform: uppercase;
             }
         }
     }

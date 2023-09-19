@@ -16,9 +16,7 @@ footer {
             text-decoration: none;
             text-transform: uppercase;
             color: var(--black);
-        }
-
-        
+        }        
     }
 
     .footer-p {
@@ -33,9 +31,7 @@ footer {
             color: var(--black);
             text-align: center;
         }
-    }
-
-    
+    }    
 }
 
 // Responsive 
@@ -54,7 +50,5 @@ footer {
         .footer-p {
             margin: 0;
         }
-    }
-    
-    
+    }   
 }

@@ -7,24 +7,24 @@
     <?php wp_head() ?>
 </head>
 <body>
-        <nav class="container-navigation">     
-            <?php
-                if(function_exists('the_custom_logo')) {
-                    $custom_logo_id = get_theme_mod('custom_logo');
-                    $logo = wp_get_attachment_image_src($custom_logo_id, 'large');
-                }
+    <nav class="container-navigation">     
+        <?php
+            if(function_exists('the_custom_logo')) {
+                $custom_logo_id = get_theme_mod('custom_logo');
+                $logo = wp_get_attachment_image_src($custom_logo_id, 'large');
+            }
+        ?>
+        <img class="logo-site" src="<?php echo $logo[0] ?>" alt="logo">
+        
+        <div class="main-navigation" id="main-navigation" >            
+            <?php 
+                wp_nav_menu([
+                    'theme_location' => 'header',
+                    'container' => false,
+                    'menu_class' => 'navbar-nav',
+                ])
             ?>
-            <img class="logo-site" src="<?php echo $logo[0] ?>" alt="logo">
-            
-            <div class="main-navigation" id="main-navigation" >            
-                <?php 
-                    wp_nav_menu([
-                        'theme_location' => 'header',
-                        'container' => false,
-                        'menu_class' => 'navbar-nav',
-                    ])
-                ?>
-            </div>               
+        </div>               
     </nav>
 
     <nav class="container-burger" >
@@ -45,10 +45,4 @@
                 <span class="line l3"></span>
             </button>             
         </div>          
-
-
-
-
-
-
     </nav>

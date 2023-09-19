@@ -19,7 +19,6 @@
         align-items: center;
         width: 100%;
         
-
         p {
             font-family: 'SpaceMono-Bold';
             font-size: 4rem;
@@ -32,7 +31,6 @@
         }
     }
     
-
     .gallery-boucle {
         display: flex;
         width: 100%;
@@ -52,7 +50,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 1);
             opacity: 0.3;
         }
     }
@@ -61,6 +59,7 @@
 // Responsive 
 @media screen and (max-width: 480px) {
     .hero-container {
+        
         height: 50vh;
         margin-bottom: 2rem;
 

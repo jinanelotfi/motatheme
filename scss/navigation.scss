@@ -26,7 +26,6 @@
 
         .navbar-nav {
             display: flex;
-            // justify-content: space-between;
             align-items: center;
             gap: 3rem;
             list-style: none;
@@ -41,7 +40,6 @@
 }
 
 // Menu burger 
-
 @media screen and (max-width: 480px) {
     .container-burger {
         display: block;

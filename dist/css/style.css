@@ -14,6 +14,12 @@
     top: 0;
     opacity: 1; } }
 
+@keyframes lightboxIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 @font-face {
   font-family: 'SpaceMono';
   src: url("../../fonts/SpaceMono-Regular.woff") format("woff");
@@ -196,11 +202,12 @@ footer {
       display: block;
       text-align: left;
       text-transform: uppercase;
-      font-family: 'Poppins'; }
+      font-family: 'Poppins';
+      margin-bottom: 1rem; }
       .box .contact-box label input, .box .contact-box label textarea {
         width: 100%;
         height: 3rem;
-        margin: 1rem 0 2rem 0;
+        margin: 1rem 0 1rem 0;
         outline: none;
         border: 1px solid var(--medium-grey);
         border-radius: 5px;
@@ -222,6 +229,9 @@ footer {
         color: var(--white);
         cursor: pointer; }
 
+.wpcf7 form.invalid .wpcf7-response-output {
+  border-color: var(--red); }
+
 @media screen and (max-width: 480px) {
   .modal .modal-content {
     margin: 0;
@@ -230,10 +240,10 @@ footer {
       color: var(--black);
       top: 84px; }
     .modal .modal-content .box .contact-box {
-      width: 60%;
-      margin: 3rem auto; }
+      width: 70%; }
       .modal .modal-content .box .contact-box .button {
-        width: 100%; } }
+        width: 100%;
+        margin: 0; } }
 
 .gallery-container {
   display: flex;
@@ -501,7 +511,7 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10;
   overflow: auto;
@@ -582,18 +592,13 @@ footer {
     display: flex;
     justify-content: space-between;
     color: var(--white);
-    width: 50%; }
+    width: 50%;
+    text-transform: uppercase; }
   .lightbox_container img {
     height: 100%;
     animation: lightboxIn .5s;
     width: 50%;
     object-fit: contain; }
-
-@keyframes lightboxIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
 
 .lightbox_loader {
   width: 38px;
@@ -671,7 +676,8 @@ footer {
     justify-content: space-between; }
     .photo-icons .icon.cat-ref-lightbox p {
       margin: 0 10px;
-      color: var(--white); }
+      color: var(--white);
+      text-transform: uppercase; }
 
 .hero-container {
   display: flex;
@@ -714,7 +720,7 @@ footer {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: black;
       opacity: 0.3; }
 
 @media screen and (max-width: 480px) {

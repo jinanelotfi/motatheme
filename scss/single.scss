@@ -68,10 +68,8 @@
             &:hover .photo-icons {
                 display: flex;
                 opacity: 1;                
-            }
-        
+            }        
         }
-
     }
 }
 
@@ -83,7 +81,6 @@
     margin: 0 4rem;
     border-bottom: 1px solid black;
 }
-
 
 #myBtn {
     width: 50%;
@@ -100,10 +97,10 @@
     align-items: end;
     padding-bottom: 0.5rem;
 
-        .nav-links-container {
-            display: flex;
-            gap: 1rem;
-        }
+    .nav-links-container {
+        display: flex;
+        gap: 1rem;
+    }
 }
 
 .modale-single {
@@ -123,10 +120,10 @@
     position: absolute;
     margin-top: -5rem;
 
-        img {
-            height: auto;
-            width: 5rem;
-        }        
+    img {
+        height: auto;
+        width: 5rem;
+    }        
 }
 
 #arrow-left,

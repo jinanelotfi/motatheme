@@ -9,8 +9,7 @@
         ?>
         <div class="footer-p">
             <p>Tous droits réservés</p>
-        </div>
-        
+        </div>        
     </footer>
     <?php wp_footer() ?>
 </body>

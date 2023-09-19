@@ -7,12 +7,9 @@
     <?php
         $image_url = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
         $reference = get_field('reference');
-        ?>
-    <div class="icon full-screen-icon" id="fullScreenIcon" data-url="<?php echo $image_url; ?>" data-reference="<?php echo $reference; ?>">       
-
+    ?>
+    <div class="icon full-screen-icon" id="fullScreenIcon" data-url="<?php echo $image_url; ?>" data-reference="<?php echo $reference; ?>">     
         <img class="full-screen-image" src="<?php echo get_template_directory_uri() . '/assets/images/full-screen.png'; ?>" alt="">
-
-
     </div>
     <div class="icon cat-ref-lightbox">
     <p class="reference-lightbox" ><?php echo $reference; ?></p>
